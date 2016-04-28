@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/*
+	Logo is uploaded via Magnolia.	
+	//desktop  {width: 219px; height: 42px}
+	//mobile {width: 129px; height: 25px}
+	//retina {width: 261px; height: 50px}
+*/
+
+body {
+	font-family: "vista-sans-book","century gothic",arial,sans-serif;
+	color: $hofmannBodyFont;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "trend-sans-one","century gothic",arial,sans-serif;
+	color: $hofmannTitleFont;
+}
+
+.logo {
+	width: 219px;
+	height: 42px;
+	padding: 10px;
+	
+	@include media-query(palm) {
+		margin: 0 0 0 10px;
+		padding: 8px 0 7px;
+		width: 129px;
+		height: 25px;
+	}
+
+	a:link,
+	a:visited {
+		text-indent: -999px;
+		display: block;
+		width: 225px;
+		height: 58px;
+		overflow: hidden;
+
+		@include media-query(palm) {
+			width: 129px;
+			height: 25px;
+		}
+	}
+}

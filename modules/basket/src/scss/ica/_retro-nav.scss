@@ -1,0 +1,113 @@
+@charset "UTF-8";
+#retro-nav{
+	background-image: none;
+	background: #fff;
+	border-bottom: 1px solid $nav-bottom-border-dark;
+
+	.nav-top-level {
+		background-image: none;
+		background-color: #fff;
+		.nav-light {
+			background-image: none;
+			background-color: #fff;
+			border-left: 0;
+			border-right: 0;
+		}
+	}
+
+	.nav-t {
+		border-left: 0;
+		border-right: 0;
+		color: #666;
+		font:{
+			weight: normal;
+		}
+	}
+
+	.nav-t:hover, .nav-t.nav-active {
+		background-image: none;
+		margin-top: -5px;
+		padding-top: 11px;
+		border-radius: 0;
+		z-index: 1;
+		border-top: 0px solid $nav-hover-border;
+
+		.nav-tl, .nav-tl:link, .nav-tl:visited, .nav-tl:active {
+			color: $nav-offer; 
+			text-decoration: none;
+			.nav-tl-arrow{
+				background: none;
+		}
+	}
+	}
+
+	.nav-t.nav-active {
+		> .nav-second-level {
+			display: block;
+			position: absolute;
+			z-index: 1000;
+			background-color: $top-level-link;
+			box-shadow: 2px 2px 3px 0px $nav-shadow;
+			padding: 10px 0;
+			margin-top: 6px;
+		}
+	}
+
+	.nav-tl, .nav-tl:link, .nav-tl:visited, .nav-tl:active {
+		color: $base-font;
+		@include font-size($small-size);
+		text-decoration: none;
+		font-weight: normal;
+		.nav-tl-arrow{
+			background: none;
+		}
+	}
+
+	.nav-second-level {
+		display: none;
+		&.nav-columns-1 {width: 190px;}
+		&.nav-columns-2 {width: 380px;}
+		&.nav-columns-3 {width: 570px;}
+		&.nav-columns-4 {width: 760px;}
+		&.nav-columns-5 {width: 950px;}
+
+		.nav-list {
+			display: block;
+			float: left;
+			width: $column-width;
+		}
+	}
+
+	.sub-nav {
+		width: 170px;
+		padding: 3px 10px;
+
+		a, a:link, a:visited, a:active {
+			text-decoration: none;
+			font-weight: normal;
+		}
+
+		a:hover {
+			color: $nav-offer;
+			text-decoration: underline;
+		}
+
+		.nav-new {
+			color: $nav-highlight;
+			padding: 0 0 0 4px;
+			font-weight: bold;
+		}
+
+		&.nav-bold {
+			a, a:link, a:visited, a:hover, a:active {
+				font-weight: bold;
+			}
+		}
+
+		&.nav-divider {
+			border-bottom: 1px solid $nav-divider;
+			margin-bottom: 4px;
+			padding-bottom: 12px;
+		}
+	}
+}

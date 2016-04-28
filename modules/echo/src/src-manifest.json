@@ -1,0 +1,18 @@
+{
+    "targets" : [
+        {
+            "name" : "echo.js",
+            "type" : "js",
+            "src": [
+                "templater.js",
+                "papershaker.js",
+                "lastFile.js"
+            ]
+        },
+        {
+            "name": "echo.css",
+            "type": "scss",
+            "src" : "echo.scss"
+        }
+    ]
+}

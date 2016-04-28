@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/*
+	NB: Need to confirm these values, 
+	currently taken from supplied jpegs
+*/
+$hofmannRed: #ff665c;
+$hofmannRedDark: #e2564d;
+$hofmannRedDarker: #b41210;
+
+$hofmannGrey: #A5A5A5;
+$hofmannGreyDark: darken($hofmannGrey, 20%);
+
+$hofmannWhite: #fff;
+
+$hofmannBlue: #00C3B2;
+$subNavNormal: #00c4b2;
+$subNavHover: #01977c;
+$subNavVisited: #12615c;
+
+$hofmannMenuLink: #4c4c4c;
+$hofmannMenuLinkHover: #D83529;
+$hofmannMenuLinkDown: #D83529;
+
+// base colors overwrite
+$brand: $hofmannRed;
+$highlight: $hofmannRed;
+$basket-discount-font: $hofmannRed;
+$promotion-button-vertical-line: #fff;
+///////////////////////
+
+$hofmannMainButtonBackground: $hofmannRed;
+$hofmannMainButtonHoverBackground: $hofmannRedDark;
+$hofmannMainButtonActiveBackground: $hofmannRedDarker;
+$hofmannAdditionalButtonBackground: $subNavNormal;
+$hofmannAdditionalButtonHoverBackground: $subNavHover;
+$hofmannAdditionalButtonActiveBackground: $subNavVisited;
+$hofmannButtonFont: #ffffff;
+
+$hofmannBodyFont: #616161;
+$hofmannTitleFont: #4c4c4c;

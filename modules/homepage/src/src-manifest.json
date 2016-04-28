@@ -1,0 +1,24 @@
+{
+    "targets" : [
+        {
+            "name" : "homepage.js",
+            "type" : "js",
+            "src": [
+
+               "plugins/jquery.pbxCarousel.js",
+               "plugins/jquery.pbxTruncate.js",
+
+                "utils.js",
+                "carousel.js",
+                "tiles.js",
+                "neolaneModule.js",
+                "lastFile.js"
+            ]
+        },
+        {
+            "name": "homepage.css",
+            "type": "scss",
+            "src" : "homepage.scss"
+        }
+    ]
+}

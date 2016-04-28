@@ -1,0 +1,525 @@
+@charset "UTF-8";
+/**
+* PROTOTYPES STYLES
+*/
+
+body.prototypes {
+	@include media-query(palm) {
+		background-image: none;
+	}
+}
+
+.header-common {
+	@include media-query(palm) {
+		width: 80%;
+		margin: 0 auto;
+		ul.login {
+			display: none;
+		}
+	}
+}
+
+.header-info {
+	float: right;
+	padding: 7px 0 0;
+	list-style: none;
+
+	.account {
+		display: none;
+	}
+
+	@include media-query(lap) {
+		margin: 10px 40px 0 0;
+	}
+
+	@include media-query(palm) {
+		margin: 0;
+		padding: 5px 5px 5px 0;
+
+		.account {
+			border-left: 1px solid $generic-border;
+			display: inline-block;
+		}
+
+		.icon {
+			background-image:url('../img/sprites/icons-bxt.png');
+
+			&.icon-body {
+				background-position: -2px 0;
+				width: 34px;
+				height: 30px;
+			}
+
+			&.icon-phone {
+				background-position: -46px 0;
+				width: 34px;
+				height: 30px;
+			}
+
+			&.icon-chat {
+				background-position: -92px 0;
+				width: 34px;
+				height: 30px;
+			}
+		}
+	}
+
+	li {
+		display: inline-block;
+		padding: 0 8px 0 3px;
+		border-right: 1px solid $generic-border;
+
+		&.last {
+			border-right: 0;
+			@include media-query(palm) {
+				padding-right: 0;
+			}
+		}
+	}
+
+	a:link,
+	a:visited {
+		color: $form-font;
+		display: inline-block;
+		font-weight: bold;
+
+		span {
+			position: relative;
+			top: -8px;
+			margin-left: 5px;
+
+			@include media-query(palm) {
+				display: none;
+			}
+		}
+	}
+
+	a:hover {
+		color:$brand;
+		text-decoration: underline;
+	}
+
+	&.login{
+		float: left;
+		margin: 16px 0 0 0;
+		a {
+			span {
+				top: 0px;
+			}
+		}
+	}
+}
+
+
+/**
+* REGISTRATION COMPONENT
+*/
+.registration-article {
+	border: 1px solid $generic-border;
+	text-align: left;
+	@include media-query(palm) {
+		border: none;
+		padding-bottom: 10px;
+	}
+
+	.mobile-header {
+		
+		.exist-account {
+			font-size: $base-font-size - 4;
+			width:100%;
+		}
+	}
+
+	.required-text{
+		color: $brand;
+		@include font-size($milli-size);
+		line-height: normal;
+		font-weight: normal;
+		float: left;
+		margin: -20px 0 0;
+		padding: 0 0 0 34px;
+
+		@include media-query(palm) {
+			position: absolute;
+			padding: 4px 0 0;
+			margin: 0;
+			right: 16px;
+		}
+	}
+		
+	.controls {
+		@include media-query(palm) {
+			margin-right: 0;
+			margin-top: 7px;
+		}
+		
+		.register-submit {
+			@include font-size($h6-size);
+			float: none;
+			margin: 20px 0 0 143px;
+			width: 202px;
+
+			@include media-query(lap-and-up) {
+				padding: 5px 40px;
+			}
+
+			@include media-query(palm) {
+				margin: 10px 0;
+				text-align: center;
+				width:100%;
+			}
+		}
+	}
+
+	.mandatory {
+		display: none;
+		@include media-query(palm) {
+			display: inline-block;
+			float: right;
+			margin: 5px 12px 0 0;
+			color: $brand;
+		}
+	}
+
+	.register-error {
+		border: 2px solid $error-border;
+		background-color: $error-background;
+		padding: 10px;
+		@include media-query(palm) {margin: 0 15px;}
+
+		.icon-error {margin: -2px 10px 10px 0;}
+	}
+}
+
+/**
+* LOGIN COMPONENT
+*/
+.login-article {
+	border: 1px solid $generic-border;
+	text-align: left;
+
+	@include media-query(palm) {
+		border: none;
+	}
+
+	.back {
+		float: right;
+		display: block;
+		padding: 4px 10px 4px;
+		margin-top: 5px;
+		@include font-size($milli-size);
+	}
+
+	.back-mobile {
+		float: left;
+		display:block;
+		line-height: 0;
+		padding: 1px 3px;
+		margin: 0 8px 0 0;
+	}
+
+
+	.reset-message {
+		display: block;
+		line-height: 1.25em;
+		@include font-size($milli-size, false);
+	}
+
+	.controls {
+		
+		.login-submit {
+			float: none;
+			margin: 34px 0 0 101px;
+			width: 199px;
+
+			@include media-query(palm) {
+				margin: 15px 0;
+				text-align: center;
+				width:100%;
+			}
+		}
+	}
+}
+
+.registration-article, .login-article, .forgotten-password-article {
+	@include vendor(box-shadow, 0px 1px 8px 0px $form-shadow);
+
+	@include media-query(lap-and-up) {
+		width: 650px;
+		margin-top: 41px;
+	}
+
+	.mobile-header {
+		display: none;
+		@include media-query(palm) {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+
+			ul {
+				background-color: $specific-background;
+				color: $form-font;
+				@include font-size($h6-size, false);
+				line-height: $micro-size;
+				margin: 0;
+				padding: 6px 10px;
+				font-weight: bold;
+				min-height: 28px;
+			}
+
+			li {
+				display: inline-block;
+				list-style: none;
+			}
+
+			li span {
+				padding: 18px 0 0;
+				float: left;
+				&.icon{
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.back {
+		float: right;
+		display: block;
+		padding: 4px 10px 4px;
+		margin-top: 5px;
+		@include font-size($milli-size);
+	}
+
+	.back-mobile {
+		float: left;
+		display:block;
+		line-height: 0;
+		padding: 1px 3px;
+		margin: 0 8px 0 0;
+	}
+
+	.button-mobile {
+		@include font-size($milli-size);
+		padding: 6px 13px 5px;
+		float: right;
+		display: block;
+		line-height: normal;
+		@include vendor(border-radius, 4px);
+
+	}
+
+	.header {
+		background-color: $article-background;
+		margin: 0 auto;
+		width:90%;
+		padding:10px 10px;
+		border: 0;
+		@include media-query(palm) {
+			display: none;
+		}
+
+		.hide-small {
+			color: $form-font;
+		}
+
+		h2 {
+			margin: 3px 0 0 -3px;
+			font-weight: normal;
+		}
+	}
+
+	a {
+		font-weight: normal;
+	}
+}
+
+.modal {
+	.registration-article, .login-article, .forgotten-password-article {
+		width: 100%;
+		border: none;
+
+		.back {
+			display: none;
+		}
+	}
+}
+
+.login-component, .registration-component, .forgotten-password-component {
+
+	.top-message {
+		padding-top:18px;
+		display:inline-block;
+
+		@include media-query(lap-and-up) {
+			padding-top: 0;
+			padding-bottom: 20px;
+		}
+	}
+	
+	.controls-footer-mobile {
+		display: none;
+		@include media-query(palm) {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+
+			div {
+				background-color: $specific-background;
+			}
+
+			span {
+				color: $form-font;
+				display: inline-block;
+				padding: 8px 10px;
+			}
+
+			.button-join {
+				width: 90%;
+				padding-left: 5%;
+				background-color: transparent;
+			}
+
+			a {
+				display: block;
+				float: none;
+				margin: 20px auto 20px;
+				width: 100%;
+			}
+		}
+	}
+
+	.controls-footer {
+		width: 91%;
+		margin: 0 auto;
+		padding: 18px 0 19px;
+
+		@include media-query(lap-and-up) {
+			@include font-size($milli-size, false);
+			padding: 18px 0 17px;
+		}
+	}
+				
+}
+
+.login-component, .registration-component{
+
+	.controls-footer {
+
+		@include media-query(palm) {
+			display: none;
+		}
+	}
+}
+
+/**
+	* FORGOTTEN PASSWORD
+	*/
+.forgotten-password-article {
+
+	@include font-size($milli-size, false);
+
+	.address-fields {
+		padding-top: 0;
+	}
+
+	a.login-back{
+		clear:both;
+		display:block;
+		float:left;
+		margin: 20px 0 0 145px;
+		@include media-query(palm) {
+			margin: 20px 0;
+		}
+	}
+
+	.info-container {
+
+		.password-submit {
+			@include font-size($h6-size);
+			float: none;
+			margin: 4px 0 22px 148px;
+			width: 202px;
+			word-wrap: break-word;
+			@include media-query(lap-and-up) {
+				padding: 5px 30px 5px 10px;
+			}
+			@include media-query(palm) {
+				margin: 20px 30px 10px 0;
+				text-align: center;
+				width:100%;
+			}
+		}
+	}
+}
+
+
+/**
+	* NEW PASSWORD
+	*/
+.new-password-article {
+
+	.controls {
+		
+		.login-submit {
+			float: none;
+			margin: 20px 0 0 145px;
+			width: 280px;
+			@include media-query(palm) {
+				margin: 10px 0;
+				text-align: center;
+				width:100%;
+			}
+		}
+	}
+}
+
+.forgotten-password-article, .new-password-article {
+	border: 1px solid $generic-border;
+	@include media-query(palm) {
+		border: none;
+	}
+
+	.header {
+		background-color: $article-background;
+
+		h2 {
+			@include media-query(palm) {
+				width: 88%;
+				padding: 20px 0;
+				line-height: $base-line-height;
+				@include font-size($base-font-size);
+			}
+		}
+
+		.hide-small {
+			color: $form-font;
+		}
+	}
+
+	a {
+		font-weight: normal;
+	}
+
+}
+
+.forgotten-password-component, .new-password-component {
+
+	p {
+		white-space: normal;
+	}
+
+	.password-hint {
+		margin: 0 0 20px -10px;
+		color: $standard-font;
+	}
+
+	.controls-footer {
+		margin: 5px auto 0 auto;
+		width: 91%;
+		color: $standard-font;
+		padding-top: 12px;
+		@include media-query(palm){
+			border-top: 1px dashed $generic-border;
+		}
+	}
+}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+$ICONS-SPRITE-RETINA-SIZE: 114px 1100px;
+
+@mixin old-ie {
+	@if $old-ie {
+		@content;
+	}
+}
+
+body:after {
+	content: "desktop";
+	visibility: hidden;
+}
+
+@include media-query(portable-small) {
+	.hide-small {
+		display: none;
+	}
+
+	.small-small {
+		font-size: 10px;
+		font-weight: normal;
+		font-style: italic;
+		display: block;
+	}
+
+	body:after {
+		content: "mobile";
+		visibility: hidden;
+	}	
+}

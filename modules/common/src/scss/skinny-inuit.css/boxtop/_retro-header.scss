@@ -1,0 +1,125 @@
+﻿@charset "UTF-8";
+.retro-header {
+	background: $article-background;
+	margin: 0;
+	@include font-size($milli-size);
+	line-height: normal;
+
+	.logo-cont {
+		float: left;
+		padding-top: 9px;
+	}
+
+	.nav.login {
+		margin: 22px 0 0;
+	}
+
+	.extras {
+		float: right;
+		list-style: none;
+		margin: 4px 0 8px;
+		clear: both;
+		padding: 0;
+
+		li {
+			display: inline;
+			padding: 0 6px;
+			border-left: 1px solid $specific-border;
+
+			.retro-help {
+				background: transparent url(../img/basket/retro-help.gif) no-repeat right center;
+				padding-right: 20px;
+			}
+		}
+
+		li:first-child {
+			border-left: none;
+		}
+
+		.offer { 
+			border-left: 0;
+			a:link, a:visited, a:active {
+				color: $nav-offer;
+			}
+		}
+		
+		.seasonal-special {
+			border-left: 0;
+
+			a, a:link, a:visited, a:active {
+				color: $nav-seasonal;
+			}
+
+			a:hover {
+				color: $nav-seasonal-hover;
+			}
+		} 
+
+		.normal-text a {
+			font-weight: normal;
+		}
+	}
+
+	.extras.language {
+
+		span {
+			font-weight: bold;
+		}
+
+		a:link,
+		a:visited {
+			font-weight: normal;
+		}
+	}
+
+	.mini-basket {
+		float: right;
+		color: $light-text;
+		background-color: $dark-background;
+		border-radius: 5px 0 0 5px;
+		padding: 5px 10px;
+		clear: right;
+		margin: 0 0 20px;
+		@include font-size($milli-size);
+
+		a, a:link, a:visited, a:hover, a:active {
+			color: $light-text;
+			font-weight: normal;
+			background: transparent url(../img/basket/retro-basket.gif) no-repeat 0 2px;
+			padding-left: 25px;
+		}
+	}
+
+	.credits-info {
+		float: right;
+		padding: 10px;
+	}
+}
+
+@include media-query(palm) {
+	.retro-header {
+		.nav.login {
+			margin: 5px 0 0 7px;
+			padding-right: 0;
+		}
+
+		.mini-basket {
+			padding: 5px 10px;
+			margin: 0 0 5px;
+		}
+
+		.logo-cont {
+			width: 65%;
+			padding: 0;
+		}
+
+	}
+}
+
+@include media-query(portable-small) {
+	.retro-header {
+		.logo-cont {
+				padding: 0;
+		}
+	}
+}

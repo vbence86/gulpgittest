@@ -1,0 +1,37 @@
+{
+    "buildPath" : "common",
+    "jarFile" :"",
+    "targets" : [
+        {
+            "name" : "common.js",
+            "type" : "js",
+            "_comments": "TODO: Vendor stuff should be moved to bower or ES6 modules. Not checked into the repo!",
+			"src": [
+				"vendor/fancySelect.js",
+				"vendor/outerHtml.js",
+				"vendor/bootstrap-tools.js",
+				"vendor/bootstrap-modal.js",
+				"vendor/jquery.sticky.js",
+				"vendor/modernizr.min.js",
+				"vendor/json2.js",
+				"vendor/webshim/polyfiller.js",
+
+				"utils.js",
+				"async-loader.js",
+				"info-popup.js",
+				"fancy-select.js",
+				"sticky.js",
+				"modal-loader.js",
+				"small-loader.js",
+				"large-loader.js",
+				"overlay-components.js",
+				"mini-menu.js",
+				"brands.js",
+				"retro-nav.js",
+				"no-flash.js",
+				"lastFile.js"
+			]
+
+		}
+	]
+}

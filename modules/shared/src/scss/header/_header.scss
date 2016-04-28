@@ -1,0 +1,549 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $SITE HEADER
+    \*------------------------------------*/
+/**
+ * Styles for the main page header 
+ */
+
+
+ .btn--cta{  
+    background: $buttonCTA;
+    color: #fff;
+}
+
+
+.pbxIcon {
+    display: block;
+    font-family: 'pbx-icon';
+    @include font-size(24px);
+    color: $siteNavColor;
+    text-decoration: none;
+    width: 60px;
+    margin: 0 auto;
+    &:hover { text-decoration: none; }
+    &.none:after { content: ''; }
+}
+
+@media screen and (max-width: $desktopStart) {
+    .pbxIcon {
+        height: auto;
+        width: auto;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MAIN SITE NAV
+    \*------------------------------------*/
+/**
+ * Styles for the main site navigation
+ */
+
+ header {
+    margin: 0;
+    @include font-size(12px);
+    font-family: 'Open Sans', sans-serif;
+    color: $headerBorderColor;
+    position: relative;
+    top: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: $headerBgColor;
+    z-index: 1002;
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.site-nav {
+    width: 100%;
+    float: left;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.site-nav__home {
+    display: block;
+    float: left;
+    margin: 10px 0;
+    overflow: hidden;
+    height: 70px;
+    top: 0;
+    background-size: 150px;
+    img{
+        height: 100%;
+        padding: 0 15px;
+        display: block;
+    }
+}
+
+.site-nav__list {
+    position: relative;
+    float: right;
+    right: 0;
+}
+
+.site-nav__item {
+    position: relative;
+    float: left;
+    display: inline-block;
+    background-color: #fff;
+
+    &.open,
+    &:hover {
+        background-color: $siteNavHoverColor;
+
+        .site-nav__hover{
+            @include vendor(transition, all .15s ease-out);
+            opacity: 1;
+            display: block;
+            height: auto;
+        }
+    }
+
+    &:last-of-type {padding-right: 0;}
+}
+
+.site-nav__item--offers{
+
+    &:hover{
+        background-color: $siteNavOffersColor;
+        .site-nav__link{color: #fff;}
+        .pbxIcon {color: #fff;}
+    }
+}
+
+.site-nav__link,
+.site-nav__sub-link {
+    position: relative;
+    color: $siteNavColor;
+}
+
+.site-nav__link {
+    display: inline-block;
+    width: 60px;
+    padding: 21px 10px 15px 10px;
+    line-height: 32px;
+    text-decoration: none;
+    text-align: center;
+    @include font-size(13px);
+
+    &:hover{
+        color: $siteNavColor;
+        text-decoration: none;
+    }
+
+    span{ display: block; }
+}
+
+.site-nav__link--userAccount{
+    width: auto;
+    word-wrap: nowrap;
+
+    .label{
+        max-width: em(100px);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+.site-nav__hover{
+    position: absolute;
+    display: none;
+    margin-left: -104px;
+    padding: 0;
+    background: $headerBgColor;
+    border: 1px solid $headerBorderColor;
+    width: 200px;
+    top: 80px;
+    left: 50%;
+    opacity: 0;
+    height: 0;
+    z-index: 5;
+    @include vendor(transition, all .15s ease-out);
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent transparent $headerBgColor;
+        border-style: solid;
+        border-width: 6px;
+        top: -12px;
+        right: 90px;
+        z-index: 2;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent transparent $headerBorderColor;
+        border-style: solid;
+        border-width: 8px;
+        top: -16px;
+        right: 88px;
+        z-index: 1;
+    }
+}
+
+.site-nav__sub-list{
+    padding: 0;
+}
+
+.site-nav__my-credits{
+
+    font-size: 12px;
+    font-weight: bold;
+
+    .monetary-credits{
+        color: #d11f5d;
+        font-size: 14px;
+        position: absolute;
+        right: 10px;
+    }
+
+    .product-credits{
+        background: #b8b2b2;
+        color: #fff;
+        border-radius: 5px;
+        min-width: 20px;
+        padding: 0px 2px;
+        line-height: 24px;
+        margin-top: 2px;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+    }
+
+    .multiple-credits{
+        line-height: 28px;
+        display: block;
+    }
+
+}
+
+.site-nav__sub-item {
+    list-style: none;
+    float: none;
+    border-top: 1px solid #CCC;
+    padding: 5px;
+    @include font-size(13px);
+
+    &:hover { background-color: inherit; }
+
+    &:first-child { border-top: none; }
+
+    .item-title,
+    .item-text{
+        display: block;
+        padding: 2px 10px;
+    }
+
+    .item-text{
+        @include font-size(12px);
+    }
+}
+
+.site-nav__sub-link {
+    display: block;
+    padding: 5px 10px;
+    width: auto;
+    text-align: left;
+    text-decoration: none;
+    @include font-size(14px);
+
+    &:hover {
+        background: none;
+        text-decoration: underline;
+        color: $siteNavColor;
+    }
+}
+
+.site-nav__btn{
+    @extend .btn;
+    display: block;
+    color: #fff;
+    width: auto;
+    background-color: $buttonCTA;
+    &:hover{
+        background: $siteNavColor;
+        color: #fff;
+    }
+}
+
+/**
+ * Site nav basket item
+ */
+ .site-nav__item--basket{
+    position: relative;
+
+    .basket-quantity {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #A2C14B;
+        border-radius: 50%;
+        padding: 2px 5px;
+        color: #FFF;
+        font-size: 10px;
+        line-height: 1;
+    }
+
+    .site-nav__hover {
+        position: absolute;
+        display: none;
+        width: 200px;
+        top: 75px;
+        right: 0;
+        left: auto;
+        margin: 0;
+        padding: 0;
+        opacity: 0;        
+        z-index: 5;
+    }
+
+    .site-nav__hover:before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        right: 32px;
+        border-color: transparent transparent $headerBgColor;
+        border-style: solid;
+        border-width: 6px;
+        height: 0;
+        width: 0;
+        z-index: 2;
+    }
+
+    .site-nav__hover:after {
+        content: '';
+        position: absolute;
+        top: -16px;
+        right: 30px;
+        border-color: transparent transparent $headerBorderColor;
+        border-style: solid;
+        border-width: 8px;
+        height: 0;
+        width: 0;
+        z-index: 1;
+    }
+
+    .miniBasketTotal{
+        @include font-size(14px);
+        padding: 15px;
+        margin-bottom: 15px;
+        text-align: left;
+        cursor: auto;
+
+        span {
+            @include font-size(15px);
+        }
+    }
+
+    .itemsQuantity{
+        float: left;
+        padding-right: 5px;
+        color: $basketQuantityColor;
+        font-weight: bold;
+    }
+
+    .itemsLabel{float: left;}
+
+    .miniBasketPrice{
+        color: $basketTotalColor;
+        margin-left: 10px;
+        float: right;
+        font-weight: bold;
+    }
+
+    .basketBtn {
+        border-top: 1px solid #CCC;
+        padding: 15px 0;
+        margin-bottom: 30px;
+
+        a {
+
+            &.btn {
+                @include font-size(14px);
+                width: 37%;
+                border-radius: 5px;
+                padding: 5px;
+                text-align: center;
+                color: $headerBgColor;
+
+                &.emptyBasket {
+                    background: #8C868A;
+                    margin: 10px;
+                }
+
+                &.shoppingCart {
+                    background: $headerIconBgColor;
+                    margin-left: 10px;
+                    float: left;
+                }
+
+                &.checkout {
+                    background: #FF5E48;
+                    margin-right: 10px;
+                    float: right;
+                }
+
+                &.disabled {
+                    background: #E7E3E0;
+                    color: $headerBorderColor;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                    &.shoppingCart {
+                        background: #3A3B38;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER OVERRIDES FOR INNER PAGES
+    \*------------------------------------*/
+/**
+ * These are needed to combat inconsistencies in template structures across inner pages
+ * e.g echo, login etc...
+ */
+
+ main{
+    header{
+        margin: 0;
+        .site-nav{
+            .site-nav__list{
+                margin-bottom: 0!important;
+                margin-left: 0!important;
+
+                .site-nav__sub-list{
+                    margin-left: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MOBILE NAV MENU
+    \*------------------------------------*/
+/**
+ * Styles for the main site navigation
+ */
+
+ #MobileMenuButton {
+    display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MOBILE BREAKPOINT
+    \*------------------------------------*/
+
+    @media screen and (max-width: $mobileStart) {
+        header {
+            position: fixed;
+            border-bottom: 1px solid $headerBorderColor;
+            min-width: 200px;
+            padding: 0;
+            height: 48px;
+            width: 100%;
+        }
+        
+        .site-nav{position: fixed}
+
+        #MobileMenuButton {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            display: block;
+            background: none;
+            border: none;
+            padding: 10px 15px 15px;
+            @include vendor(border-radius, 0);
+            margin: 0;
+            cursor: pointer;
+            outline: none;
+            color: $headerMenuIconColor;
+        }
+
+        .site-nav__home {
+            position: relative;
+            height: 40px;
+            margin: 4px auto;
+            padding: 0;
+            background-size: contain;
+            float: none;
+            img { margin: 0 auto; }
+        }
+
+        .site-nav__lang,
+        .site-nav__list{
+            position: absolute;
+            top: 0;
+            float: none;
+
+            & > li:not(.site-nav__item--basket){ display: none; }
+
+            .site-nav__item--basket{
+                display: block;
+
+                .site-nav__link--basket{
+                    margin: 0;
+                    padding: 12px 8px 8px;
+
+                    .basket-quantity{top: 11px;}
+
+                    .basket-label{display: none;}
+
+                }
+                .site-nav__hover{top: 42px;}
+            }
+        }
+        /* make sure <main> sits below fixed header */
+        main {margin-top: 50px!important;}
+    }
+
+
+
+
+
+/**
+ * This image-rendering code makes the logo image edges jagged,
+ * i think Andreas story - 2059 image optimisation will take care of retina image sizings
+ * - LA - 18/08/15
+ */
+// img {
+//     image-rendering: -moz-crisp-edges;         /* Firefox */
+//     image-rendering:   -o-crisp-edges;         /* Opera */
+//     image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+//     image-rendering: crisp-edges;
+//     -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+// }

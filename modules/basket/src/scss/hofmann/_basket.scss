@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.basket-component {
+	.offer-panel {
+		input {
+			padding: 8px;
+		}
+
+		button {
+			padding: 4px;
+		}
+	}
+}
+
+/*------------------------------------*\
+	MEDIA QUERIES PALM
+\*------------------------------------*/
+@include media-query(palm) {
+	.basket-component {
+		.controls {
+			.button{
+				span{
+					font-weight: bold;
+				}
+			}
+		}
+		.offer-panel {
+			input {
+				padding: 10px 8px;
+			}
+
+			button {
+				padding: 8px 4px;
+			}
+		}
+	}
+}
+
+/*---------------------------------------------------------*\
+	MEDIA QUERIES LAP - > 641 < 1238px [max-width:$lap-end]
+\*---------------------------------------------------------*/
+
+@include media-query(lap) {
+	.basket-component {
+		.offer-panel {
+			input {
+				padding: 10px 8px;
+			}
+
+			button {
+				padding: 8px 4px;
+			}
+		}
+	}
+}

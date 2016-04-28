@@ -1,0 +1,22 @@
+@charset "UTF-8";
+  $sprite-card-x: 0px;
+  $sprite-card-y: 0px;
+  $sprite-card-offset-x: 0px;
+  $sprite-card-offset-y: 0px;
+  $sprite-card-width: 65px;
+  $sprite-card-height: 41px;
+  $sprite-card-total-width: 110px;
+  $sprite-card-total-height: 41px;
+  $sprite-card-image: '../img/uc/adyen-sprite.png?v=2015-04-23-17-11-04';
+  $sprite-card: 0px 0px 0px 0px 65px 41px 110px 41px '../img/uc/adyen-sprite.png?v=2015-04-23-17-11-04';
+  $sprite-cvv-x: 70px;
+  $sprite-cvv-y: 0px;
+  $sprite-cvv-offset-x: -70px;
+  $sprite-cvv-offset-y: 0px;
+  $sprite-cvv-width: 40px;
+  $sprite-cvv-height: 24px;
+  $sprite-cvv-total-width: 110px;
+  $sprite-cvv-total-height: 41px;
+  $sprite-cvv-image: '../img/uc/adyen-sprite.png?v=2015-04-23-17-11-04';
+  $sprite-cvv: 70px 0px -70px 0px 40px 24px 110px 41px '../img/uc/adyen-sprite.png?v=2015-04-23-17-11-04';
+

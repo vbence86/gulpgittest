@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/*------------------------------------*\
+	CUSTOM MIXINS
+\*------------------------------------*/
+
+/*------------------------------------*\
+	$ARROWS
+\*------------------------------------*/
+
+/*
+	Defining arrow-media mixin (which acts exactly as arrow mixin) with expanded extensions.
+	This gives possibility to use it with @media query mixins.
+*/
+
+@mixin arrow-media($arrow-edge, $arrow-location, $arrow-color, $border-color: $arrow-color){
+	&:before,
+	&:after{
+		content:"";
+		position:absolute;
+		border-collapse:separate;
+	}
+
+	&:before{
+		border:$border solid transparent!important;
+	}
+	&:after{
+		border:$arrow solid transparent!important;
+	}
+
+	@if $arrow-edge == top{
+		&:before,
+		&:after{
+			bottom:100%;
+		}
+
+		&:before{
+			border-bottom-color:$border-color!important;
+		}
+
+		&:after{
+			border-bottom-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == left{
+				&:before{
+					left:$arrow;
+				}
+				&:after{
+					left:$border;
+				}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				left:50%;
+				margin-left:-$border;
+			}
+			&:after{
+				margin-left:-$arrow;
+			}
+		}
+
+		@if $arrow-location == right{
+			&:before{
+				right:$arrow;
+			}
+			&:after{
+				right:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == right{
+
+		&:before,
+		&:after{
+			left:100%;
+		}
+
+		&:before{
+			border-left-color:$border-color!important;
+		}
+
+		&:after{
+			border-left-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == top{
+			&:before{
+				top:$arrow;
+			}
+			&:after{
+				top:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				top:50%;
+				margin-top:-$border;
+			}
+			&:after{
+				margin-top:-$arrow;
+			}
+		}
+
+		@if $arrow-location == bottom{
+			&:before{
+				bottom:$arrow;
+			}
+			&:after{
+				bottom:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == bottom{
+
+		&:before,
+		&:after{
+			top:100%;
+		}
+
+		&:before{
+			border-top-color:$border-color!important;
+		}
+
+		&:after{
+			border-top-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == left{
+			&:before{
+				left:$arrow;
+			}
+			&:after{
+				left:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				left:50%;
+				margin-left:-$border;
+			}
+			&:after{
+				margin-left:-$arrow;
+			}
+		}
+
+		@if $arrow-location == right{
+			&:before{
+				right:$arrow;
+			}
+			&:after{
+				right:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == left{
+
+		&:before,
+		&:after{
+			right:100%;
+		}
+
+		&:before{
+			border-right-color:$border-color!important;
+		}
+
+		&:after{
+			border-right-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == top{
+			&:before{
+				top:$arrow;
+			}
+			&:after{
+				top:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				top:50%;
+				margin-top:-$border;
+			}
+			&:after{
+				margin-top:-$arrow;
+			}
+		}
+
+		@if $arrow-location == bottom{
+			&:before{
+				bottom:$arrow;
+			}
+			&:after{
+				bottom:$border;
+			}
+		}
+
+	}
+
+}
+
+@mixin appearance($type){
+	
+	@if $type == input{
+		@include vendor(appearance, none);
+	}
+	@if $type == select{
+		@include vendor(appearance, menulist);
+	}
+	@include vendor(border-radius, 0);
+	
+}
+
+@mixin cssAnimation($amimation-name,$duration){
+	-moz-animation-duration: $duration;
+	-webkit-animation-duration: $duration;
+	-ms-animation-duration: $duration;
+	-o-animation-duration: $duration;
+	-moz-animation-name: $amimation-name;
+	-webkit-animation-name: $amimation-name;
+	-ms-animation-name: $amimation-name;
+	-o-animation-name: $amimation-name;
+}

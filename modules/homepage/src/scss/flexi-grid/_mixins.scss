@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@mixin font-size($font-size){
+	font-size:$font-size;
+	font-size:($font-size / 10px)*1rem;
+}
+
+@mixin media-query($media-query){
+
+    @if $media-query == small {
+        @media only screen and (max-width: 659px) { @content; }
+    }
+    @if $media-query == small-portrait {
+        @media only screen and (max-width: 374px) { @content; }
+    }
+    @if $media-query == small-landscape {
+        @media only screen and (max-width: 659px) and (orientation:landscape) { @content; }
+    }
+    @if $media-query == iPhone6-6+-portrait  {
+        @media only screen and (min-width: 375px) and (max-width: 435px) and (orientation:portrait) { @content; }
+    }
+    @if $media-query == iPhone6-6+-landscape {
+        @media only screen and (min-width: 667px) and (max-width: 736px) and (orientation:landscape) { @content; }
+    }
+    @if $media-query == medium {
+        @media only screen and (max-width: 1200px) { @content; }
+    }
+
+}
+
+@mixin vendor($property, $value...){
+	-webkit-#{$property}:$value;
+	   -moz-#{$property}:$value;
+		-ms-#{$property}:$value;
+		 -o-#{$property}:$value;
+			#{$property}:$value;
+}
+
+$old-ie: false !default;
+@mixin retina2x() {
+	@if $old-ie != true {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			@content;
+		}
+	}
+}
+
+@mixin gradient($from, $to) {
+	background-color:$to;
+	background-image: linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -o-linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -moz-linear-gradient(top, $from 0%, $to 100%);
+	background-image: -webkit-linear-gradient(bottom, $from 100%, $to 0%);
+    background-image: -ms-linear-gradient(top, $from 0%, $to 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, $from),
+		color-stop(0, $to)
+	);
+}

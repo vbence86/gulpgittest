@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<!-- ie9+ rendering support for latest standards -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title>PBX QUnit Tests</title>
+
+<link rel="stylesheet" type="text/css" href="lib/qunit/qunit-1.16.0.css"/>
+
+<!-- module specific css -->
+<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+
+<!-- dependant libs -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- TODO: Fix dependencies so they don't have to be loaded externally from the resources that will be bundled into the final product -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/hammerjs/jquery.hammer.js/master/jquery.hammer.js"></script>
+
+<script src="lib/qunit/qunit-1.16.0.js"></script>
+<script src="lib/blanket.min.js" data-cover></script>
+
+
+<!-- modules to test here -->
+<script type="text/javascript" src="carousel-test.js"></script>
+
+</head>
+<body>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+<!-- flexi.js includes all concatenated scripts -->
+<script type="text/javascript" src="../js/homepage.js"></script>
+
+</body>
+</html>

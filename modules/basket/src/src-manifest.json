@@ -1,0 +1,75 @@
+{
+    "targets" : [
+        {
+            "name" : "pbx.js",
+            "type" : "js",
+            "src": [
+				"!common.js",
+                "validation.js",
+                "login.js",
+                "registration.js",
+                "float.js",
+                "forgotten-password.js",
+                "basket.js",
+                "tag-manager.js",
+                "empty-cross-sell.js",
+                "mega-nav.js",
+                "aviary.js",
+                "ps-studio.js",
+                "lastFile.js"
+            ]
+            
+        },
+        {
+            "name" : "uc.js",
+            "type" : "js",
+            "src" : [
+
+                "uc/MicroEvent.js",
+                "uc/Lightbox.js",
+                "uc/AddressEditor.js",
+                "uc/AddressDelivery.js",
+                "uc/UniversalCheckout.js",
+                "uc/CountySelector.js",
+                "uc/main.js"
+            ]
+        },
+        {
+            "name" : "adyen.js",
+            "type" : "js",
+            "src" : [
+                "uc/Adyen.js"
+            ]
+        },
+        {
+            "name": "adyen.css",
+            "type": "scss",
+            "src" : "adyen.scss"
+        },
+        {
+            "name": "hofmann.css",
+            "type": "scss",
+            "src" : "hofmann.scss"
+        },
+        {
+            "name": "ica.css",
+            "type": "scss",
+            "src" : "ica.scss"
+        },
+        {
+            "name": "pbx.css",
+            "type": "scss",
+            "src" : "pbx.scss"
+        },
+        {
+            "name": "screen.css",
+            "type": "scss",
+            "src" : "screen.scss"
+        },
+        {
+            "name": "uc.css",
+            "type": "scss",
+            "src" : "uc.scss"
+        }
+    ]
+}

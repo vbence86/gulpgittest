@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+#lod {
+	@include vendor(box-sizing, border-box);
+	margin: 10px;
+	border-bottom: 1px solid $basket-mobile-header-border;
+
+	.lod-desc {
+		@include font-size (14px, false);
+		width: 50%;
+		float: left;
+		
+		@include media-query(palm) {
+			width: 100%;
+
+			p {margin: 0.45em;}
+
+			&:after{
+				content:"";
+				display:table;
+				clear:both;
+			}
+		}
+	}
+	.lod-icon-desc {
+		position: relative;
+		float: left;
+		@include font-size (14px, false);
+		width: 25%;
+
+		@include media-query(palm) {
+			width: 50%;
+		}
+
+		.desc{
+
+			@include media-query(palm) {
+				margin: 0.45em;
+				text-align: center;
+
+				&:after {
+					content:"";
+					display:table;
+					clear:both;
+				}
+			}
+		}
+	}
+
+	.lod-icon {
+		display: block;
+		float: left;
+		width: 49px;
+		height: 40px;
+		margin: 10px 10px 0 10px;
+
+		@include media-query(palm) {
+			float: none;
+			margin: 0 auto;
+		}
+	}
+
+}

@@ -1,0 +1,346 @@
+﻿@charset "UTF-8";
+header {
+	font-family: "vista-sans-book","century gothic",arial,sans-serif;
+	background: $hofmannRed;
+	
+	a:link,
+	a:visited { 
+		color: $hofmannWhite;
+	}
+
+	.extras {
+		a:link { background: #ff665c; }
+	}
+
+	.pbxIcon {
+		@include font-size(24px);
+		color: $hofmannWhite;
+	}
+
+	.headerIcon {
+		color: $hofmannWhite;
+	}
+
+	.myAccount {
+		width: auto;
+		.menuMyAccount{
+			color: $hofmannWhite;
+			font-family: "vista-sans-book","century gothic",arial,sans-serif;
+		}
+
+		ul {
+			a:hover { text-decoration: none; }
+		}
+
+		.headerOverlayCenter{
+			.btn:visited,
+			.btn:link {
+				background: $subNavNormal;
+				color: $hofmannWhite;
+				text-transform: uppercase;
+				font-weight: bold;
+				@include font-size(13px,1);
+				letter-spacing: 1px;		
+			}			
+			.btn:hover{
+				background: $subNavHover;
+				text-decoration: none;				
+			}
+			.btn:active{
+				background: $subNavVisited;
+				text-decoration: none;				
+			}
+		}
+	}
+
+	.headerOverlay { right: 10px; }
+	.headerOverlay:before { right: 31px; }
+	.headerOverlay:after { right: 29px; }
+
+	.headerOverlay,
+	.headerOverlayCenter,
+	.extras .headerOverlay,
+	.extras .headerOverlayCenter {
+		
+		a:link,
+		a:visited { 
+			text-align: center;
+			background: #FFF;
+		}
+
+		a:hover { text-decoration: none; }
+
+		a:active { background: #FFF; }
+
+	}
+
+	.extras {
+		margin: 0;
+
+		a:link{
+			width: 80px;
+			padding: 24px 10px;
+			margin: 0;
+			text-align: center;
+		}
+
+		a:hover { 
+			background-color: $hofmannRedDark;
+			text-decoration: none;
+		}
+
+		li:hover {
+			a.offers { background-color: $hofmannRedDark; }
+		}
+
+		a:hover.offers { 
+			background-color: $hofmannRedDark; 
+			.iconOffers { background-position: -98px -2px; }
+		}
+
+		a:active.offers,
+		a:active { background-color: $hofmannRedDarker; }
+
+		a.menuMyAccount { width: auto; }
+
+		&.language {
+			padding: 0;
+			background-color: #ff8580;
+			border: none;
+
+			a:link {
+				max-width: 45px;
+				background: none;
+			}
+			&:before {
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-top: 6px solid $hofmannWhite;
+			}
+			ul {
+				max-width: 45px;
+				margin-top: 0;
+				position: relative;
+				padding-left: 0;
+				padding-top: 0;
+				transition: max-width 0.15s ease-out, margin 0s linear;
+				li {
+					display: inline-block;
+					padding-right: 4px;
+					margin-top: -8px;
+					line-height: 25px;
+					&:first-child { padding: 0 3px 0 34px; }
+					&.selected {
+						position: absolute;
+						left: 7px;
+						top: 0;
+						&:first-child {
+							position: relative;
+							padding: 0;
+							left: 7px;
+						}
+					}
+				}
+			}
+
+			&:hover {
+				ul {
+					max-width: 100%;
+					margin-top: 0;
+					padding-left: 34px;
+					padding-right: 6px;
+					transition: max-width 0.15s ease-out, margin 0s linear;
+					li {
+						&:first-child { padding-left: 7px}
+						&.selected {
+							top: inherit;
+							&:first-child {
+								position: absolute;
+								left: 0;
+								+ li { padding-left: 6px; }
+							}
+						}
+					}
+				}
+			}
+			&.edit {
+				ul {
+					li.selected {
+						position: relative;
+						left: 0;
+					}
+				}
+				&:hover { ul { padding: 0; } }
+			}
+		}
+
+		.social a:after {
+			content: '';
+			display: block;
+			width: 166px;
+			height: 53px;
+			background: url('../img/header-social.png') 0 0 no-repeat;
+
+			@include retina2x {
+				background: url('../img/header-social@2x.png') no-repeat 0 0 / contain;
+			}
+		}
+
+		.megaBasket {
+			.quantity {
+				background: #00c3b2;
+				border: 2px solid #FFF;
+				right: 25px;
+				top: 18px;
+			}
+		}
+
+	}
+
+	.headerOverlayCenter {
+		top: 80px;
+		
+		a:link,
+		a:visited { 
+			color: $hofmannMenuLink;
+			text-align: center;
+		}
+
+		a:hover {
+			color: $hofmannMenuLinkHover;
+			text-decoration: none;
+		}
+
+		a:active {
+			color: $hofmannMenuLinkDown;
+		}
+	}
+
+	#MiniBasket {
+		li {border-bottom: 1px solid $megaHeaderColor4;}
+
+		.miniBasketUpsell,
+		.miniBasketProduct {
+			@include font-size(14px,1);
+			color: $megaHeaderColor2;
+		}
+	}
+
+	#MiniBasketFooter {
+		
+		.miniBasketTotal { 
+			span { 
+				color: $hofmannRed;
+				&.miniBasketPrice { color: #ff665c; }
+			}
+		}
+
+		.basketBtn {
+
+			a.btn{
+				text-transform: uppercase;
+				font-weight: bold;
+				@include font-size(13px,1);
+				letter-spacing: 1px;
+				font-family: "vista-sans-book","century gothic",arial,sans-serif;
+			}
+			a:hover.btn { text-decoration: none; }
+
+			div {
+				padding: 15px 0;
+				border-top: 1px solid $megaHeaderColor5;
+
+				a.btn {
+					float: left;
+					width: 38%;
+				}
+				a.btn.shoppingCart {
+					background: $hofmannAdditionalButtonBackground;
+					color: $hofmannButtonFont;
+				}
+				a:hover.btn.shoppingCart { background: $subNavHover; }
+				a:hover.btn.checkout { background: #e2564d; }
+
+			}
+
+		}
+
+		a.btn.enabled {
+			background: $hofmannMainButtonBackground;
+			color: $hofmannButtonFont;
+		}
+
+		a.btn.disabled {
+			background: $hofmannAdditionalButtonBackground;
+			color: $hofmannButtonFont;
+		}
+	}
+}
+
+.headerLogo {
+	margin: 24px 0 0 30px;
+	padding: 5px;
+	float: left;
+
+	a:link,
+	a:visited {
+		text-indent: -1099px;
+		display: block;
+		width: 219px;
+		height: 42px;
+		background: url('../img/hofmann-logo.png') 0 0 no-repeat;
+
+		@include retina2x {
+			background: url('../img/hofmann-logo@2x.png') no-repeat 0 0 / contain;
+		}
+	}
+}
+
+@include media-query(portable-small) {
+	header {		
+		border-bottom: 1px solid $megaHeaderColor2;
+
+		.extras {
+			top: 0;
+			right: 0;
+			margin: 0;
+
+			a:link {
+				margin: 0;
+				padding: 5px 10px;
+				width: 32px;
+				height: 32px;
+			}
+
+			.megaBasket {
+				.quantity {
+					top: 6px;
+					right: 6px;
+				}
+			}
+		}
+
+		.logo-cont { padding: 0; }
+
+		.pbxIcon { 
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+		}
+	}
+
+	button#MenuButton { top: 4px; }
+
+	.headerLogo {
+		margin: 0;
+		float: none;
+
+		a:link,
+		a:visited {
+			width: 165px;
+			height: 32px;
+			margin: 0 auto;
+			background-size: contain;
+		}
+	}
+}

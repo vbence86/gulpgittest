@@ -1,0 +1,11 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!--[if IE]>
+    <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+	var body = document.getElementsByTagName("BODY")[0];
+	body.style.display = 'none';
+</script>
+
+<div id="photoboxAdyen">

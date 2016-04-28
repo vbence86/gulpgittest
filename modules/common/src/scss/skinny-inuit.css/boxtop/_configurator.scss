@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.product-information {
+	img {
+		padding: 10px 20px;
+		width: 100%;
+		@if $global-border-box == false {
+			@include vendor(box-sizing, border-box);
+		}
+	}
+}

@@ -1,0 +1,255 @@
+@charset "UTF-8";
+.stepped-scrubber {
+
+     display: none; 
+     position: relative;
+
+    .shortlist { 
+        display: block; 
+        position: absolute; 
+    }
+}
+    
+.no-preserve3d {
+
+    .stepped-scrubber {
+        display: block; margin: 0 auto; 
+
+        .folded {
+            .flat { 
+                width: 60px; 
+                height: 60px; 
+                background: url("/img/sprites.png") no-repeat; 
+                display: block; 
+            }
+
+            $cards-left-offset: -230px;
+            $offset-multiplier: 60;
+
+            &.square {
+                @for $i from 1 through 4 {
+                    &.page-#{$i} {
+                        background-position: $cards-left-offset -(5px + (($i - 1) * $offset-multiplier));
+                    }
+                }
+            }
+
+            &.landscape {
+                @for $i from 1 through 4 {
+                    &.page-#{$i} {
+                        &.a5, &.a6 {
+                            background-position: $cards-left-offset -(484px + (($i - 1) * $offset-multiplier));
+                        }
+                    }
+                }
+            }
+
+            &.portrait {
+                @for $i from 1 through 4 {
+                    &.page-#{$i} {
+                        &.a5, &.a6 {
+                            background-position: $cards-left-offset -(244px + (($i - 1) * $offset-multiplier));;
+                        }
+                    }
+                }
+            }
+            
+        }
+ 
+        ol {
+            margin: 0 auto;
+            list-style: none;
+        }
+        li {
+            cursor: pointer;
+            text-align: center;
+            float: left;
+            height: 74px;
+
+            a {
+                // stop the dotted box appearing (https://css-tricks.com/removing-the-dotted-outline/)
+                outline: none;
+            }
+        }
+
+        &.card-folded {
+            width: 240px; 
+
+            ol { width: 240px; }
+            li { 
+                width: 60px;
+
+                &.selected { 
+                    border-bottom: 4px solid #44b8af;
+
+                    .quick-look-container & {
+                        border-bottom: 4px solid #a3b62c;
+                    }
+                }
+            }
+            .shortlist { top: 12px; }
+        }
+        
+        &.card-flat { 
+            width: 160px; 
+
+            ol { width: 160px; }
+            li { 
+                width: 70px;
+                background: none; 
+                padding: 0px 5px 10px;
+
+                &.selected a {
+                    border-bottom: 4px solid #44b8af;
+
+                    .quick-look-container & {
+                        border-bottom: 4px solid #a3b62c;
+                    }
+                }
+            }
+
+            a {
+                margin: 0px auto;
+            }
+
+            img { max-width: 100%; max-height: 100%; }
+            .shortlist { 
+                top: 22px;
+            }
+        }
+
+        .shortlist { 
+            right: -60px; 
+        }
+    } 
+}
+
+.preserve3d {
+    .stepped-scrubber {
+        display: block; 
+        width: 200px; 
+        margin: 40px auto; 
+        left: 2px; 
+        ol { 
+            background: #f1efed; 
+            border-radius: 10px; 
+            height: 8px; 
+            width: 200px; 
+            padding: 0; 
+            margin: 0;
+        }
+
+        li {
+            background: none; 
+            list-style-type: none; 
+            border-radius: 100px; 
+            cursor: pointer; 
+            margin-left: -18.5px; 
+            width: 17px; 
+            height: 17px; 
+            padding: 10px; 
+            position: absolute; 
+            text-indent: -999px; 
+            top: -14px; 
+
+            @include vendor(transition, all 125ms ease-out);
+
+            &:hover { 
+                margin-left: -22.5px; 
+                width: 25px; 
+                height: 25px; 
+                top: -17px; 
+            }
+
+            &.selected { 
+                border: none; 
+
+                a { border: none; }    
+            }
+        }
+
+        
+        a { 
+            background: #dadada; 
+            border-radius: 100px; 
+            display: block; 
+            width: 100%; 
+            height: 100%; 
+            padding: 0px; 
+
+            img { display: none; }
+        }
+        
+        .scrubber-handle {
+            background: $papershaker-main-color url($sprite-ps-stepped-scrubber-icon-image) ($sprite-ps-stepped-scrubber-icon-offset-x - 3) ($sprite-ps-stepped-scrubber-icon-offset-y - 3); 
+
+            .quick-look-container & {
+                background: #a1c341;
+            }
+
+            border-radius: 100px; 
+            @include vendor(box-shadow, 0px 2px 2px #afafaf); 
+            cursor: pointer; 
+            width: 41px; 
+            height: 41px; 
+            margin-left: -20.5px; 
+            position: absolute; 
+            left: 0px; 
+            top: -16px; 
+            
+            @include vendor(transition, background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out);
+            @include vendor(transform, translate3d(0, 0, 0));
+
+            &:hover, &.in-use { 
+                width: 47px; 
+                height: 47px; 
+                margin-left: -23.5px; 
+                background-position: $sprite-ps-stepped-scrubber-icon-offset-x $sprite-ps-stepped-scrubber-icon-offset-y; 
+                top: -19px; 
+            }
+            
+            [data-transition="glide"] { 
+                // Note that these properties should _not_ be simplied using the vendor mixin since the ${prefix}-transform property will not be properly prefixed
+                -webkit-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -webkit-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                -moz-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -moz-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                -o-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -o-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            }
+
+            [data-transition="snap"] { 
+                // Note that these properties should _not_ be simplied using the vendor mixin since the ${prefix}-transform property will not be properly prefixed
+                -webkit-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                -moz-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -moz-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                -o-transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, -o-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+                transition: background-position 80ms ease-out, margin-left 80ms ease-out, width 80ms ease-out, height 80ms ease-out, top 80ms ease-out, transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            }  
+        }
+
+        
+        
+        &.card-folded {
+            li:nth-child(2) { left: 66.66667px; }
+            li:nth-child(3) { left: 133.33333px; }
+            li:nth-child(4) { left: 200px; }    
+        }
+
+        &.card-flat {
+            width: 133.33333px;
+            ol { width: 133.33333px; }
+            li:nth-child(2) { left: 133.33333px; }    
+        }
+
+        .shortlist { right: -70px; top: -18px; }
+    }
+}
+
+
+.scrubber-title {
+	display: block;
+	margin-top: 25px;
+	@include font-size($h55-size, false);
+
+    .quick-look-container & {
+        display: none;
+    }
+}

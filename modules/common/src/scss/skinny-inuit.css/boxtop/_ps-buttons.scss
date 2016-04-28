@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.button {
+
+	&.ps-brand {
+		background-color: $papershaker-main-color;
+
+		.quick-look-container & {
+			background-color: #7fb145;
+			width: 100%;
+			padding: 8px 0;
+			text-align: center;
+			@include font-size($h5-size, false)
+		}
+		
+		color: #fff;
+		font-weight: normal;
+		padding: 0px 10px;
+		margin-top: 10px;
+		@include font-size($h3-size, false);
+
+		&.next {
+			background-color: #58bb35;
+		}
+
+		&:hover {
+			opacity:0.5;
+		}
+	}
+
+	&.right-arr:after {
+		content: "";
+		display: inline-block;
+		background: url($sprite-ps-button-right-arrow-icon-image) $sprite-ps-button-right-arrow-icon-offset-x $sprite-ps-button-right-arrow-icon-offset-y;
+		width: $sprite-ps-button-right-arrow-icon-width;
+		height: $sprite-ps-button-right-arrow-icon-height;
+		margin-left: 10px;
+		position: relative;
+		top: 2px;
+
+	}
+
+	&.left-arr:before {
+		content: "";
+		display: inline-block;
+		background: url($sprite-ps-button-left-arrow-icon-image) $sprite-ps-button-left-arrow-icon-offset-x $sprite-ps-button-left-arrow-icon-offset-y;
+		width: $sprite-ps-button-left-arrow-icon-width;
+		height: $sprite-ps-button-left-arrow-icon-height;
+		margin-right: 10px;
+		position: relative;
+		top: 2px;
+
+	}
+}

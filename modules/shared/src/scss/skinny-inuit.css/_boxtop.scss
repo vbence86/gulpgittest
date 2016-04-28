@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/**
+ * Custom BoxTop Style
+ */
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/utils";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/assets";
+@import "boxtop/document";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/forms";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/buttons";
+/**
+ * BASKET DELETE POPUP
+ */
+.remove-popup {
+	width: 400px;
+	background-color: $basket-remove-popup-background;
+
+	.header {
+		min-height: 26px;
+		padding-left: 24px;
+
+		h2 {
+			@include font-size($large-size);
+		}
+	}
+
+	.article {
+		min-height: 0;
+
+		.wrapper{
+			background-color: $basket-remove-popup-background;
+		}
+	}
+
+	.controls {
+		text-align: right;
+		margin: 0 0 10px;
+	}
+}
+
+.hidden {
+	display: none!important;
+}
+
+.no-js {
+	.bord .controls{
+		display: inline-block;
+		margin: 20px 0;
+	}
+
+	.basket {
+	@include vendor(box-shadow, 0 4px 4px -2px #9f9f9f);
+	}
+}
+
+.info-modal {
+
+	.article {
+		min-height: inherit;
+	}
+
+	&.estimated-delivery-info-modal {
+		margin: 0;
+	}
+}
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/delivery-details-popup";
+@import "boxtop/login-register";

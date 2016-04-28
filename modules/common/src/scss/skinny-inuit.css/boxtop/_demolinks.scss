@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/**
+ * Links for bxtDemo Page
+ */
+#main{
+	.links{		
+		float: right;	
+		clear: both;		
+		h2{}
+		ul, li {
+			list-style-type:none;			
+		}
+		li{
+			float: left; 
+		}
+	}
+}

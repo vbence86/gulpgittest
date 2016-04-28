@@ -1,0 +1,299 @@
+@charset "UTF-8";
+#Nav{
+    background: $navBgColor;
+    margin-bottom: 10px;
+}
+
+.products {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    clear: both;
+    position: relative;
+
+    .navItem{
+        text-transform: uppercase;
+    }
+
+    ul {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        display: block;
+    }
+
+    li {
+        display: inline;
+        margin-right: -5px;
+
+        @include media-query(tablet) {
+            margin-right: -7px;
+        }
+    }
+
+    li:first-child {
+        a {
+            span { border-left: none; }
+        }
+    }
+
+    a {
+        @include font-size(14px);
+        font-weight: normal;
+        color: $navProductLinkColor;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 0;
+        position: relative;
+        &:hover{text-decoration:none;}
+        span {
+            padding: 0 20px;
+            border-left: 1px solid $navBorderColor;
+        }
+    }
+    a:hover,
+    a:link,
+    a:visited {
+        &.subNavSelected {
+            &.navItem {
+                background: $navBorderColor;
+                color: $navBgColor;
+            }
+        }
+    }
+
+    a {
+        &.navItem {
+            .arrow {
+                width: 0;
+                height: 0;
+                padding: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 6px solid #FFF;
+                display: inline-block;
+                position: absolute;
+                opacity: 0;
+                top: 26px;
+                left: 45%;
+                z-index: 1000;
+            }
+        }
+        &.remove {
+            .arrow { display: none; }
+        }
+    }
+    .subNav {
+        display: none;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        padding: 0 8px;
+        z-index: 3;
+        float: left;
+        width: 97%;
+        margin-left: 1%;
+
+        span {
+            border: none;
+        }
+    }
+    .subNavContent {
+        background: $navProductsColor;
+        border: 1px solid $navBorderColor;
+        position: relative;
+        z-index: 2;
+        top: -10px;
+        padding: 20px;
+    }
+    .subNavProducts {
+        float: left;
+        width: 66.666%;
+        text-align: left;
+
+
+        li {
+            float: left;
+            padding: 5px;
+            width: 30%;
+        }
+
+        img {
+            display: block;
+        }
+
+        .imageHolder{
+            position: relative;
+            display: block;
+            width: 123px;
+            height: 123px;
+            border: 1px solid #b8b2b2;
+            margin-bottom: 10px;
+            padding: 0;
+            font-size: 0;
+            overflow: hidden;
+            .newProduct{
+                position: absolute;
+                display: inline-block;
+                top: 13px;
+                right: -38px;
+                width: 120px;
+                background: #57a7d8;
+                color: #fff;
+                font-size: 10px;
+                padding: 0;
+                text-transform: uppercase;
+                line-height: 20px;
+                text-align: center;
+                border-radius: 2px 2px 0 0;
+                @include vendor(transform, rotate(45deg));
+            }
+        }
+
+        div { margin: 0; }
+
+        a { span { line-height: 1.2; } }
+
+        a:hover {
+            text-decoration: none;
+            color: $navProductLinkHoverColor;
+            span {
+                text-decoration: underline;
+                &.newProduct {
+                    text-decoration: none;
+                    display: inline-block;
+                }
+            }
+        }
+
+        span {
+            &.newProduct {
+                padding: 0 5px;
+                font-weight: bold;
+                color: $newProductColor;
+            }
+        }
+        .productName {
+            padding-left: 0;
+            margin-bottom: 4px;
+            display: block;
+            @include font-size(14px);
+        }
+        .productPriceLabel {
+            padding-left: 0;
+
+        }
+        .productPrice {
+            display: inline-block;
+            padding-left: 0;
+            padding-right: 0;
+            @include font-size(14px);
+            font-weight: bold;
+        }
+        .subNavBasePrice {
+            padding: 0;
+            font-weight: bold;
+        }
+        .quantityForPrice {
+            padding: 0;
+            font-weight: bold;
+        }
+
+    }
+
+    .subNavPromoPrice {
+        color:#d85456;
+        padding-left: 0;
+        font-weight: bold;
+    }
+
+    .subNavOldPrice {
+        text-decoration: line-through;
+        padding: 0;
+    }
+
+    .subNavMoreOptions {
+        float: right;
+        width: 33.333%;
+
+        h2{
+            @include font-size(17px);
+            font-weight: normal;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            margin: 0;
+            float: none;
+        }
+        ul {
+            &.navList {
+                padding-bottom: 25px;
+                margin-bottom: 25px;
+                @include font-size(14px);
+                a {
+                    padding-left: 5px;
+                    padding-bottom: 0;
+                }
+                a:hover{
+                    color: #292929;
+                }
+                .newProduct {
+                    padding: 0;
+                    font-weight: bold;
+                    color: $newProductColor;
+                }
+            }
+        }
+
+        a {color: $navProductLinkColor;}
+        a:hover {
+            text-decoration: underline;
+            color: $navProductLinkHoverColor;
+        }
+        .seeAll{
+            color: $seeAllLinkColor;
+            position: absolute;
+            left: 66.666%;
+            bottom: 25px;
+            @include font-size(14px);
+            font-weight: bold;
+            text-transform: none;
+            outline: none;
+
+            &:hover{
+                background-color: $navWhiteBgColor;
+                color: $seeAllLinkColor;
+            }
+        }
+
+    }
+    .navList li {
+        clear: both;
+        display: block;
+        text-align: left;
+    }
+}
+
+
+
+
+
+@media screen and ( max-width: 990px) {
+
+    .products {
+        a {
+            @include font-size(12px);
+            span {padding: 0 12px;}
+        }
+        .subNavProducts{
+            .productPrice {
+                @include font-size(12px);
+            }
+        }
+    }
+}
+
+@media screen and ( max-width: $mobileStart) {
+    nav {
+        &.products { display: none; }
+    }
+}

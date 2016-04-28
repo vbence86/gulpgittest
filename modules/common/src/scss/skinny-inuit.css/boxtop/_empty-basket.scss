@@ -1,0 +1,30 @@
+﻿@charset "UTF-8";
+.empty-basket {
+	padding: 1em 1em 30px;
+	text-align: center;
+	border-bottom: 2px solid $basket-unit-background;
+
+	.empty-message {
+		background-color: $empty-basket-background;
+		padding-top: 13px;
+		@include font-size($h6-size, false);
+		display: block;
+
+		.empty-text {
+			padding: 0 30px 10px;
+			display: block;
+			width: 100%;
+			@include vendor(box-sizing, border-box);
+		}
+	}
+}
+
+/*------------------------------------*\
+	MEDIA QUERIES PALM
+\*------------------------------------*/
+@include media-query(palm) {
+	.empty-basket {
+		padding: 10px 0;
+		border-bottom: 0;
+	}
+}

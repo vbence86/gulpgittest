@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* BRAND ICONS */
+
+
+// NB: CSS generated from TexturePacker
+// --------------------
+// @settings:
+// --------------------
+// = Size constraints: 	POT (power of 2)
+// = Algorithm: 		MaxRects
+// --------------------
+// Best leave the CSS format for individual classes as is - LA 26/05/15
+
+.brands-sprite {
+	display: inline-block; 
+	overflow: hidden; 
+	background-repeat: no-repeat;
+	background-image: url('../img/Footer/footer-sprite@2x.png');
+	text-indent: -999px;
+	background-size: 256px;
+}
+
+.amex {width:44px; height:29px; background-position: -201px -117px}
+.app-store {width:105px; height:31px; background-position: -2px -50px}
+.blog {width:25px; height:25px; background-position: -216px -63px}
+.dotpay {width:44px; height:29px; background-position: -2px -157px}
+.face-of-britain {width:87px; height:38px; background-position: -92px -118px}
+.facebook {width:25px; height:25px; background-position: -216px -90px}
+.google-plus {width:25px; height:25px; background-position: -48px -157px}
+.hofmann {width:105px; height:28px; background-position: -109px -63px}
+.ideal {width:44px; height:29px; background-position: -75px -158px}
+.instagram {width:25px; height:25px; background-position: -48px -184px}
+.interac {width:44px; height:29px; background-position: -2px -188px}
+.ir-uk {width:66px; height:38px; background-position: -181px -148px}
+.klarna {width:44px; height:29px; background-position: -121px -158px}
+.maestro {width:44px; height:29px; background-position: -167px -188px}
+.mastercard {width:44px; height:29px; background-position: -75px -189px}
+.mistercash {width:44px; height:29px; background-position: -2px -219px}
+.moonpig {width:124px; height:46px; background-position: -2px -2px}
+.paper-shaker {width:88px; height:39px; background-position: -2px -116px}
+.paypal {width:44px; height:29px; background-position: -121px -189px}
+.paytrail {width:44px; height:29px; background-position: -167px -219px}
+.photobox {width:93px; height:23px; background-position: -106px -93px}
+.pinterest {width:25px; height:25px; background-position: -213px -188px}
+.play-store {width:102px; height:31px; background-position: -2px -83px}
+.poster-jack {width:120px; height:20px; background-position: -128px -2px}
+.sepa {width:44px; height:29px; background-position: -75px -220px}
+.sticky-nine {width:108px; height:37px; background-position: -128px -24px}
+.top-cs {width:24px; height:44px; background-position: -213px -242px}
+.twitter {width:25px; height:25px; background-position: -213px -215px}
+.visa {width:44px; height:29px; background-position: -167px -250px}
+.visa-electron {width:44px; height:29px; background-position: -121px -220px}
+.youtube {width:25px; height:25px; background-position: -48px -211px}
+
+
+.amex, .dotpay, .ideal, .interac, .klarna, .maestro, .mastercard, .mistercash, .paypal, .paytrail, .sepa, .visa, .visa-electron {
+	pointer-events: none;
+}
+
+
+
+
+
+/* IE8 SPECIFIC */
+
+.ie8{
+
+	/* normal size icons here, IE8 doesnt support background-size */
+	.brands-sprite  {
+		background-image: url('../img/Footer/footer-sprite@1x.png');
+	}
+
+}

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+.btn {
+  display: inline-block;
+  padding: 6px 0;
+  margin-bottom: 0;
+  @include font-size(13px);
+  line-height: 1;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn-default {
+  color: #646870;
+  background-color: #fff;
+  border-radius: 20px;
+  font-weight: bold;
+}

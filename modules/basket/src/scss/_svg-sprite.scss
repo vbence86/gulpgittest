@@ -1,0 +1,54 @@
+@charset "UTF-8";
+%svg-common {
+	background: url(../img/svg-sprite.svg?v=2015-11-03-11-31-18) no-repeat;
+}
+
+.svg-burger-icon {
+	@extend %svg-common;
+	background-position: 0 100%;
+	width: 26px;
+	height: 26px;
+}
+
+.svg-call-icon {
+	@extend %svg-common;
+	background-position: 0 55.172413793103445%;
+	width: 32px;
+	height: 32px;
+}
+
+.svg-chat-icon {
+	@extend %svg-common;
+	background-position: 0 0;
+	width: 37px;
+	height: 32px;
+}
+
+.svg-edit-icon {
+	@extend %svg-common;
+	background-position: 100% 0;
+	width: 30px;
+	height: 30px;
+}
+
+.svg-trash-icon {
+	@extend %svg-common;
+	background-position: 92.3076923076923% 50%;
+	width: 24px;
+	height: 30px;
+}
+
+.svg-user-login-icon {
+	@extend %svg-common;
+	background-position: 45.714285714285715% 55.172413793103445%;
+	width: 32px;
+	height: 32px;
+}
+
+.svg-user-logout-icon {
+	@extend %svg-common;
+	background-position: 55.223880597014926% 0;
+	width: 35px;
+	height: 32px;
+}
+

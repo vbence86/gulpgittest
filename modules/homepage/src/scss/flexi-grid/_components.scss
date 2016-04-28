@@ -1,0 +1,689 @@
+@charset "UTF-8";
+.pbxCarousel {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	z-index: 0;
+
+	.slides {
+		float: left;
+		position: relative;
+		z-index: 1;
+		left: 0;
+		white-space: nowrap;
+		// TODO: why is the font-size set to zero?
+		font-size: 0;
+		a {
+			position: relative;
+			display: inline-block;
+			&:hover {
+				table { text-decoration: none;}
+			}
+		}
+		.countdown-wrapper {
+
+			$after-nbsp: '\00a0';
+
+			position: absolute;
+			bottom: 4.25em;
+			left: 1em;
+			width: 30%;
+			min-width: 16em;
+			max-width: 32em;
+			text-align: center;
+			font-size: 1.6rem;
+			// Fixes line-breaking issue with :after in Firefox
+			white-space: normal;
+
+			&.center {
+				left: 50%;
+				@include vendor(transform, translateX(-50%));
+				.countdown-title { padding-left: 0; }
+				p { text-align: center; }
+			}
+            @include media-query(small-portrait) {
+                font-size: 1rem;
+            }
+            @include media-query(small-landscape) {
+                font-size: 1.6rem;
+            }
+            @include media-query(iPhone6-6+-portrait) {
+                font-size: 1.3rem;
+            }
+            @include media-query(iPhone6-6+-landscape) {
+                font-size: 2.3rem;
+            }
+
+			div	span {
+				float: left;
+				width: 25%;		
+				&:after {
+					float: right;
+				}
+			}
+
+			.countdown-title {
+				font-size: 1.125em;
+				font: open-sans;
+				line-height: 1em;
+				text-align: left;
+				padding-left: 5%;
+			}
+
+			.countdown-values {
+				font-size: 2em;
+				span {
+					&:after {
+						content: ':';
+					}
+					&:last-child:after {
+						content: '#{$after-nbsp}';
+					}
+				}
+			}
+
+			.countdown-labels {
+			    font-size: 0.75em;
+				span:after {
+					content: '#{$after-nbsp}#{$after-nbsp}'; 
+				}
+			}
+
+			.expired-offer {
+				position: absolute;
+				bottom: 1em;
+				left: 1em;
+				font-size: 2.25rem;
+
+				@include media-query(small) {
+					font-size: 1.2rem;
+				}
+			}
+			&.one-slide-carousel { bottom: 1.1em; }
+		}
+
+		img {
+			display: inline;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+		}
+		.promoBlock {
+			position: absolute;
+			left: 50px;
+			top: 0;
+			white-space: normal;
+			color: $promoBlockColor;
+			@include font-size(14px);
+			input[type=button], input[type=submit] {
+				border: none;
+				outline: none;
+				border-radius: 5px;
+				padding: 5px;
+				text-align: center;
+				width: 140px;
+				@include font-size(16px);
+				&:hover {
+					background: $btnBgHoverColor;
+				}
+			}
+			input[type=button] {
+				background: $btnOneBgColor;
+				color: $btnOneColor;
+				&:hover {
+					color: $btnOneHoverColor;
+				}
+			}
+			input[type=submit] {
+				background: $btnTwoBgColor;
+				color: $btnTwoColor;
+			}
+		}
+
+	}
+
+	ul {
+		float: left;
+		width: (100% - $gutterWidthBorders);
+		position: absolute;
+		left: ($gutterWidthBorders / 2);
+		bottom: 4px;
+		z-index: 2;
+
+		li {
+			float: left;
+			padding-top: 12px;
+			padding-bottom: 11px;
+			@include font-size(15px);
+			text-align: center;
+			text-transform: uppercase;
+			background: $backgroundColor;
+			cursor: pointer;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			&.active {
+				background: $bodyColor;
+				color: $backgroundColor;
+				cursor: default;
+			}
+		}
+		&.slides2 {
+			li {
+				width: (49.3% - ($gutterWidth/2));
+				margin-left: ($gutterWidth / 2);
+				margin-right: ($gutterWidth / 2);
+			}
+		}
+		&.slides3 {
+			li {
+				width: (33.3% - ($gutterWidth/2));
+				margin-left: ($gutterWidth / 4);
+				margin-right: ($gutterWidth / 4);
+			}
+		}
+		&.slides4 {
+			li {
+				width: (25% - ($gutterWidth/2));
+				margin-left: ($gutterWidth / 4);
+				margin-right: ($gutterWidth / 4);
+			}
+		}
+		&.slides5 {
+			li {
+				width: (20% - ($gutterWidth/2));
+				margin-left: ($gutterWidth / 4);
+				margin-right: ($gutterWidth / 4);
+			}
+		}
+	}
+}
+
+#MainTitle { 
+	h1 { 
+		@include font-size(32px);
+		line-height: 1.2;
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto;
+	}
+}
+
+#Reviews,
+#MainTitle { text-align: center; }
+
+#Reviews {
+	position: relative;
+
+	h2 {
+		@include font-size(28px);
+		margin-bottom: 20px;
+	}
+
+	.link-trustpilot {
+		display: block;
+		position: absolute;
+		top: 0;
+		height: 102px;
+		width: 100%;
+		z-index: 10;
+
+		&.no-title {
+			height: 64px;
+		}
+	}
+
+	.trustpilot-widget{
+		display: inline-block;
+		width: 100%;
+	}
+
+}
+
+
+#Tiles {
+
+	ul{
+		display: block;
+		list-style-position: inside;
+		font-size: 0;
+		padding: 0;
+
+		li{
+			list-style: none;
+			display: inline-block;
+			@include font-size(17px);
+			margin-bottom: 10px;
+			&.col {
+				float: none;/* for inline-block */
+			}
+		}
+	}
+
+	a{
+		display: block;
+		margin: 10px 0 15px;
+		text-decoration: none;
+		color: $bodyColor;
+	}		
+
+	.title{
+		@include font-size(24px);
+		font-weight: normal;
+		line-height: 1.2;
+		padding-bottom: 5px;			
+	}
+
+	img{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.subTitle,
+	.ctaLink{
+		display: block;
+		@include font-size(16px);
+		line-height: 1.2;
+	}
+	.subTitle{		
+		height: 2.75em;
+		line-height: 1.2;
+		padding-bottom: 2px;
+		overflow: hidden;
+	}
+	.ctaLink{
+		padding-top: 5px;
+		color: $linkColor;
+		background-color: #fff;
+		&.unselectable {
+			color: transparent;
+			@include vendor (user-select,none);
+		}
+	}
+
+}
+
+
+.mobileNavTitle {
+	@include font-size(14px);
+	font-weight: normal;
+	padding: 10px 15px 0 15px;
+}
+#MobileNavigation {
+	clear: both;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	li {
+		border-top: 1px solid $mobileNavBorderColor;
+		padding: 10px 15px;
+		&:last-child { border-bottom: 1px solid $mobileNavBorderColor; }
+		a {
+			color: $bodyColor;
+			display: block;
+			&:hover {
+				span {
+					text-decoration: none;
+					display: inline-block;
+				}
+			}
+		}
+		span {
+			float: right;
+			&.newProduct {
+				float: none;
+				padding-left: 3px;
+				font-weight: bold;
+				color: #57a7d8;
+			}
+		}
+	}
+}
+
+#Happiness { 
+	margin-bottom: 26px;
+
+	h2 {
+		@include font-size(28px);
+		margin-bottom: 20px;
+	}
+
+	ul { 
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	li {
+		float: left;
+		width: (25% - ($columnPadding*2));
+		margin: $columnPadding;
+		line-height: 0;
+		position: relative;
+
+		.label {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-left: 60px;
+			line-height: 18px;
+			line-height: 1.8rem;
+			@include vendor(transform, translateY(-50%));
+		}
+	}
+
+	.icon {
+		@include font-size(52px);
+		color: $iconColor;
+		vertical-align: middle;
+		width: 40%;
+	}
+}
+
+#IntroText {
+
+	h2 {
+		@include font-size(28px);
+		margin-bottom: 20px;
+	}
+
+	a {
+		text-decoration: underline;
+		color: initial;
+		&:hover {
+			color:#80b04c;
+		}
+	}
+
+	p {
+		text-align: center;
+		@include font-size(14px);
+		padding-left: 42px;
+		padding-right: 42px;
+	}
+}
+
+#Apps { 
+	margin-bottom: 26px;
+	display: block;
+	
+	.row {
+		position: relative;
+		margin-bottom: 0;
+	}
+
+	h2 {
+		@include font-size(28px);
+		margin-bottom: 20px;
+	}
+
+	h3 {
+		@include font-size(20px);
+		margin-bottom: 10px;
+	}
+
+	p { @include font-size(14px); }
+
+	.appDetails {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: inline-block;
+		vertical-align: middle;
+		@include vendor(transform, translateY(-50%));
+	}
+
+	.storeLogos { margin-top: 24px; }
+
+	.storeLogo { 
+		float: left;
+		margin-left: 12px;
+
+		&:first-child { margin-left: 0; }
+	}
+
+	.colImg { 
+		margin: 0 auto;
+		width: 85%;
+		height: auto;
+	}
+}
+
+.ie {
+	#Happiness { 
+		li {
+			.label { top: 12px; }
+		}
+
+		.icon {
+			@include font-size(52px);
+			color: $iconColor;
+			vertical-align: middle;
+			width: 40%;
+		}
+	}
+
+	#Apps {
+		.appDetails { top: 28px; }
+	}
+}
+
+.ie7 {
+	
+	.pbxCarousel {
+		padding: 0;
+
+		li { width: (33.2% - ($gutterWidth/2)); }
+	}
+}
+
+
+
+
+@media only screen and (max-width: $mobileStart) {
+
+	.pbxCarousel {
+
+		ul {
+			&[class^='slide'] {
+				float: none;
+				display: block;
+				position: absolute;
+				left: 0;
+				text-align: center;
+
+				li {
+					float: none;
+					display: inline-block;
+					overflow: hidden;
+					text-indent: -999px;
+					width: 12px;
+					height: 12px;
+					padding: 0;
+					opacity: 0.5;
+					border-radius: 50%;
+					text-align: center;
+					background: $backgroundColor;
+					margin-left: 4px;
+					-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+					-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+					-o-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+					box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+
+					&:first-child { margin-left: 0; }
+
+					&.active {
+						background: $bodyColor;
+						color: $backgroundColor;
+						cursor: default;
+						opacity: 1;
+					}
+				}
+			}
+		}
+		.slides {
+			.promoBlock {left: 0; }
+		}
+	}
+	.row { margin-bottom: 15px; }
+
+	#MainTitle,
+	#Happiness {
+		border-bottom: 1px solid #ededed;
+		margin-bottom: 10px;
+		padding-bottom: 20px;
+		padding-top: 5px;
+	}
+
+	#MainTitle {
+		h1 {
+			@include font-size(20px);
+			line-height: 1.2;
+		}
+	}
+	#Reviews {
+		h2 {
+			@include font-size(20px);
+			line-height: 1.2;
+		}
+	}
+
+	#Tiles {
+
+		ul{
+			li{
+				border-bottom: 1px solid #ededed;
+			}
+		}
+
+		.title{			
+			@include font-size(17px);
+		}
+
+		.subTitle,
+		.ctaLink{
+			@include font-size(13px);
+			line-height: 1.2;
+		}
+
+		.subTitle{
+			height: 2.25em;
+		}
+
+	}
+
+	#Happiness {
+		h2 { @include font-size(20px); }
+		.icon { @include font-size(40px); }
+		.label {
+			@include font-size(14px);
+			margin-left: 50px;
+		}
+		ul { 
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		li { width: (50% - ($columnPadding*2)); }
+	}
+
+	#Apps {
+		h2 { @include font-size(20px); }
+		.appDetails { 
+			position: static;
+			@include vendor(transform, translateY(0));
+			margin-top: 20px;
+			h3 { text-align: center; }
+		}
+	}
+
+	#CookieBanner {
+
+		.cookieInfo { 
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.container { 
+			max-width: auto;
+			padding: 0 12px;
+		}
+		
+		.mainText { text-align: center; }
+		.subText { display: none; }
+		
+		.cookiesInfoMobile {
+			float: left;
+			display: block;
+			width: 50%;
+			margin-top: 6px;
+			margin-left: 0;
+			text-align: center;
+				
+			a { 
+				@include font-size(13px);
+				color: #fff;
+				text-decoration: underline;
+			}
+		}
+
+	}
+
+	#CookieBannerClose { 
+		margin-top: 0;
+		margin-bottom: 20px;
+		margin-right: 0;
+		width: 50%;
+	}
+
+}
+
+
+
+
+@media only screen and (max-width: $mobileStart) and (orientation: landscape) {
+
+	#MainTitle {
+		h1 {
+			@include font-size(22px);
+		}
+	}
+
+	#Tiles {
+
+		.title{
+			@include font-size(20px);
+		}
+
+		.subTitle,
+		.ctaLink{
+			@include font-size(14px);
+			line-height: 1.2;
+		}
+
+		.subTitle{
+			height: 2.75em;
+		}
+
+	}
+
+}
+
+/**
+* Retina specific styles here
+*/
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pbxCarousel {
+        ul{
+            bottom: 8px;
+        }
+    }
+}
+
+.ie8{
+	#CookieBanner{
+		background-color: #000;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	}
+}

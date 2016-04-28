@@ -1,0 +1,89 @@
+﻿@charset "UTF-8";
+nav {
+	font-family: "vista-sans-book","century gothic",arial,sans-serif;
+	border-top: 1px solid $megaNavColor2;
+	border-bottom: 1px solid $megaNavColor2;
+	background: $hofmannGreyDark;
+
+	a:link, a:visited {		
+		color: $hofmannWhite;
+		text-transform: none;			
+		span { border-left: 1px solid $megaNavColor2; }
+	}
+
+	a:hover,
+	a:link.subNavSelected,
+	a:visited.subNavSelected {
+		background: $megaNavColor2;
+		color: $megaNavColor1;		
+	}
+
+	a:link.subNavSelected:before,
+	a:visited.subNavSelected:before {
+		border-color: transparent transparent $megaNavColor1;		
+	}
+
+	.subNav { background: rgba(0,0,0,0.2); }
+
+	.subNavProducts {
+		
+		li { 
+			width: 142px;
+			margin-left: 20px;
+		}
+		
+		li:first-child { margin-left: 0; }
+
+		a:link, a:visited {
+			@include font-size(13px);
+			text-align: center;
+
+			.productName {
+				font-family: "trend-sans-one","century gothic",arial,sans-serif;
+				text-transform: uppercase;
+			}
+		}
+
+		a:hover {
+			color: $hofmannRedDark;
+			
+			div { text-decoration: none; }
+		}
+
+		a:active { color: $hofmannRedDarker; }
+	}
+
+	.subNavContent {
+		background: $megaNavColor1;
+		border: 1px solid $megaNavColor2;		
+
+		h2 { 
+			color: $megaNavColor2; 
+			font-family: "trend-sans-one","century gothic",arial,sans-serif;
+			border-bottom: 1px solid $hofmannRed;		
+		}
+
+	    span.productPrice {
+		  p {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		  }
+		}
+	}
+
+	.subNavMoreOptions {
+		a:hover { text-decoration: none; }
+	}
+
+	.nav-list {		
+		a:link, a:visited {
+			color: $hofmannRed;
+			font-family: "vista-sans-book","century gothic",arial,sans-serif;
+		}
+		
+		a:hover { color: $hofmannRedDark; }
+
+		a:active { color: $hofmannRedDarker; }
+	}
+
+}

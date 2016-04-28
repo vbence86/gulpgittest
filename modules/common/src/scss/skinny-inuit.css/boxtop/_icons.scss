@@ -1,0 +1,548 @@
+@charset "UTF-8";
+$cacheTimeStamp: 190320151443;
+.icon {
+	display:inline-block;
+	text-indent:-5000px;
+	width:43px;
+	height:32px;
+	background-color:transparent;
+	background:transparent url('../img/sprites/icons-bxt.png') no-repeat;
+	background-repeat: no-repeat;
+	
+
+	@include retina2x {
+		background-size: $ICONS-SPRITE-RETINA-SIZE1;
+	}
+
+	&.icon-error {
+		width:16px;
+		height:16px;
+		background-position:-63px -1365px;
+		background-image:url('../img/sprites/icons.png');
+		float: left;
+
+		@include retina2x {
+			background-size: $ICONS-SPRITE-RETINA-SIZE;
+			background-position:-28px -710px;
+		}
+	}
+
+	/** NB: confirm if icon-remove IS being used? */
+
+	&.icon-remove {
+		background-position:-62px -622px;
+		width:20px;
+		height:20px;
+		background-image:url('../img/sprites/icons.png');
+
+		@include retina2x {
+			background-size: $ICONS-SPRITE-RETINA-SIZE;
+			background-position:-26px -331px;
+		}
+	}
+
+	&.icon-remove-disabled {
+		background-position:-62px -722px;
+		width:20px;
+		height:20px;
+		background-image:url('../img/sprites/icons.png');
+
+		@include retina2x {
+			background-size: $ICONS-SPRITE-RETINA-SIZE;
+			background-position:-26px -381px;
+		}
+	}
+
+	/**
+		 updated the following icon styles to use sprite.png - [need to check/refactor above]
+	*/
+
+
+	&.icon-arrow-open {
+		background: url($sprite-open-filter-image) $sprite-open-filter-offset-x $sprite-open-filter-offset-y;
+		width: $sprite-open-filter-width;
+		height: $sprite-open-filter-height;
+		position: relative;
+		top: 4px;
+	}
+
+	&.icon-arrow-close {
+		background: url($sprite-close-filter-image) $sprite-close-filter-offset-x $sprite-close-filter-offset-y;
+		width: $sprite-close-filter-width;
+		height: $sprite-close-filter-height;
+		position: relative;
+		top: 4px;
+	}
+
+	&.icon-delivery-info {
+		background: url($sprite-info-image) $sprite-info-offset-x $sprite-info-offset-y;
+		width: $sprite-info-width;
+		height: $sprite-info-height;
+		position: relative;
+		top: 4px;
+	}
+
+	&.icon-bin {
+		background: url($sprite-bin-image) $sprite-bin-offset-x $sprite-bin-offset-y;
+		width: $sprite-bin-width;
+		height: $sprite-bin-height;
+	}
+
+	&.icon-success {
+		background: url($sprite-tick-image) $sprite-tick-offset-x $sprite-tick-offset-y;
+		width: $sprite-tick-width + 1;
+		height: $sprite-tick-height + 1;
+	}
+
+	&.icon-options-open {
+		background: url($sprite-options-open-icon-image) $sprite-options-open-icon-offset-x $sprite-options-open-icon-offset-y;
+		width:$sprite-options-open-icon-width;
+		height:$sprite-options-open-icon-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+
+	&.icon-options-close {
+		background: url($sprite-options-close-icon-image) $sprite-options-close-icon-offset-x $sprite-options-close-icon-offset-y;
+		width:$sprite-options-close-icon-width;
+		height:$sprite-options-close-icon-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+
+	&.icon-bin {
+			background: url($sprite-bin-image) $sprite-bin-offset-x $sprite-bin-offset-y;
+			width: $sprite-bin-width;
+			height: $sprite-bin-height;
+
+			@include retina2x {
+				background-size: auto auto;
+			}
+	}
+
+	&.icon-phone {
+		background: url($sprite-phone-top-green-image) $sprite-phone-top-green-offset-x $sprite-phone-top-green-offset-y;		
+		width: $sprite-phone-top-green-width;
+		height: $sprite-phone-top-green-height + 1;
+		margin: 3px 0 0 10px;
+			
+	}
+
+	&.icon-loggedout {
+		background: url($sprite-unlogged-user-green-image) $sprite-unlogged-user-green-offset-x $sprite-unlogged-user-green-offset-y;					
+		width: $sprite-unlogged-user-green-width;
+		height: $sprite-unlogged-user-green-height;	
+		margin: 4px 0 0 10px;
+	}
+
+	&.icon-loggedin {		
+		background: url($sprite-logged-user-green-image) $sprite-logged-user-green-offset-x $sprite-logged-user-green-offset-y;		
+		width: $sprite-logged-user-green-width;
+		height: $sprite-logged-user-green-height;
+		margin: 4px 0 0 10px;
+	}
+
+	&.icon-chat {
+		background: url($sprite-chat-live-image) $sprite-chat-live-offset-x $sprite-chat-live-offset-y;	
+		width: $sprite-chat-live-width;
+		height: $sprite-chat-live-height;
+		position: relative;	
+		top: 4px;	
+	}
+
+	&.icon-logout-dark {
+		background: url($sprite-logout-image) $sprite-logout-offset-x $sprite-logout-offset-y;
+		width: $sprite-logout-width;
+		height: $sprite-logout-height;
+		margin-left: 20px;
+		margin-right: 10px;	
+		position: relative;
+    	top: 4px;
+	}
+
+	&.icon-phone-dark {		
+		background: url($sprite-phone-image) $sprite-phone-offset-x $sprite-phone-offset-y;			
+		width: $sprite-phone-width;
+		height: $sprite-phone-height;		
+		margin-left: 17px;
+		margin-right: 10px;	
+		position: relative;
+    	top: 4px;
+	}
+
+	&.icon-chat-dark {		
+		background: url($sprite-chat-big-image) $sprite-chat-big-offset-x $sprite-chat-big-offset-y;					
+		width: $sprite-chat-big-width;
+		height: $sprite-chat-big-height;		
+		margin-left: 15px;
+		margin-right: 9px;	
+		position: relative;
+    	top: 4px;
+	}
+	
+
+	&.icon-login-dark {				
+		background: url($sprite-logged-user-image) $sprite-logged-user-offset-x $sprite-logged-user-offset-y;					
+		width: $sprite-logged-user-width;
+		height: $sprite-logged-user-height;		
+		margin-left: 15px;
+		margin-right: 9px;	
+		position: relative;
+    	top: 4px;
+	}
+
+	&.icon-join-dark {
+		background: url($sprite-new-user-image) $sprite-new-user-offset-x $sprite-new-user-offset-y;
+		width: $sprite-new-user-width;
+		height: $sprite-new-user-height;
+		margin-left: 15px;
+		margin-right: 9px;	
+		position: relative;
+    	top: 4px;	
+	}
+
+	&.icon-menu {
+		background: url($sprite-menu-image) $sprite-menu-offset-x $sprite-menu-offset-y;
+		width: $sprite-menu-width;
+		height: $sprite-menu-height + 1;
+		margin: 4px 0 0;
+	}
+
+	/* Icons for brand bar */
+	&.icon-moonpig {
+		background: url($sprite-moonpig-image) $sprite-moonpig-offset-x $sprite-moonpig-offset-y;
+		width: $sprite-moonpig-width;
+		height: $sprite-moonpig-height; 
+	}
+	&.icon-photobox {
+		background: url($sprite-photobox-image) $sprite-photobox-offset-x $sprite-photobox-offset-y;
+		width: $sprite-photobox-width;
+		height: $sprite-photobox-height;
+	}
+	&.icon-papershaker {
+		background: url($sprite-papershaker-image) $sprite-papershaker-offset-x $sprite-papershaker-offset-y;
+		width: $sprite-papershaker-width;
+		height: $sprite-papershaker-height;
+	}
+	&.icon-sticky9 {
+		background: url($sprite-sticky9-image) $sprite-sticky9-offset-x $sprite-sticky9-offset-y;
+		width: $sprite-sticky9-width;
+		height: $sprite-sticky9-height;
+	}
+
+	/* TODO (below here) ---------------------- */
+
+	&.icon-related-dark {
+		background-position: -344px 0px;
+
+		@include retina2x {
+			background-position: -344px -16px;
+		}
+	}
+
+	&.icon-related {
+		background-position: -86px 0px;
+
+		@include retina2x {
+			background-position: -86px -16px;
+		}
+	}	
+
+	&.icon-back-mobile {
+		background: url($sprite-back-icon-mobile-image) $sprite-back-icon-mobile-offset-x $sprite-back-icon-mobile-offset-y;
+		width: $sprite-back-icon-mobile-width;
+		height: $sprite-back-icon-mobile-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+	&.icon-back {
+		background: url($sprite-back-icon-image) $sprite-back-icon-offset-x $sprite-back-icon-offset-y;
+		width: $sprite-back-icon-width;
+		height: $sprite-back-icon-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+	&.icon-back-button {
+		background: url($sprite-back-button-image) $sprite-back-button-offset-x $sprite-back-button-offset-y;
+		width: $sprite-back-button-width;
+		height: $sprite-back-button-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+
+	&.icon-trash {
+		background: url( $sprite-trash-icon-image)  $sprite-trash-icon-offset-x  $sprite-trash-icon-offset-y;
+		width: $sprite-trash-icon-width;
+		height: $sprite-trash-icon-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+}
+
+.tap-highlight{
+	.icon{	
+
+		&.icon-phone {		
+			background: url($sprite-phone-green-image) $sprite-phone-green-offset-x $sprite-phone-green-offset-y;
+			width: $sprite-phone-green-width;
+			height: $sprite-phone-green-height;		
+			margin-left: 17px;
+			margin-right: 10px;	
+			position: relative;
+	    	top: 4px;		
+		}
+		
+		.icon-login {
+			background-position:0 -105px;
+			
+			@include retina2x {
+				background-position: 0 -16px;
+			}
+		}
+
+		.icon-chat {
+			background-position:-129px -105px;
+			
+			@include retina2x {
+				background-position: -129px -16px;
+			}
+		}
+
+		.icon-related {
+			background-position:-86px -105px;
+
+			@include retina2x {
+				background-position: -86px -16px;
+			}
+		}
+
+		.icon-menu{
+			background-position:-172px -105px;
+			
+			@include retina2x {
+				background-position: -172px -16px;
+			}
+		}
+
+		&.icon-logout-dark{
+			background: url($sprite-logout-green-image) $sprite-logout-green-offset-x $sprite-logout-green-offset-y;			
+			width: $sprite-logout-green-width;
+			height: $sprite-logout-green-height;		
+			margin-left: 20px;
+			margin-right: 10px;	
+			position: relative;
+	    	top: 4px;	
+		}
+
+		&.icon-phone-dark{
+			background: url($sprite-phone-green-image) $sprite-phone-green-offset-x $sprite-phone-green-offset-y;			
+			width: $sprite-phone-green-width;
+			height: $sprite-phone-green-height;		
+			margin-left: 17px;
+			margin-right: 10px;	
+			position: relative;
+	    	top: 4px;		
+		}
+
+		&.icon-chat-dark{
+			background: url($sprite-chat-green-image) $sprite-chat-green-offset-x $sprite-chat-green-offset-y;					
+			width: $sprite-chat-green-width;
+			height: $sprite-chat-green-height;		
+			margin-left: 15px;
+			margin-right: 9px;	
+			position: relative;
+	    	top: 4px;
+		}
+
+		.icon-related-dark{
+		background-position:-344px -105px;
+
+			@include retina2x {
+				background-position: -344px -70px;
+			}
+		}
+
+		&.icon-login-dark {				
+			background: url($sprite-logged-user-green-image) $sprite-logged-user-green-offset-x $sprite-logged-user-green-offset-y;					
+			width: $sprite-logged-user-green-width;
+			height: $sprite-logged-user-green-height;		
+			margin-left: 15px;
+			margin-right: 9px;	
+			position: relative;
+	    	top: 4px;
+		}
+
+		&.icon-join-dark {
+			background: url($sprite-new-user-green-image) $sprite-new-user-green-offset-x $sprite-new-user-green-offset-y;
+			width: $sprite-new-user-green-width;
+			height: $sprite-new-user-green-height;
+			margin-left: 15px;
+			margin-right: 9px;	
+			position: relative;
+	    	top: 4px;	
+		}
+	}			
+}
+
+
+// only include 2x size image for 'retina' screens
+@media  only screen and (-webkit-min-device-pixel-ratio: 2),          
+        only screen and (min-resolution: 192dpi) {  
+
+        .icon {
+        	/**
+        		TODO - Add this background img to the main .icon above (so there is just one call to background: url(...)) 
+        	*/
+        	background: url('..img/sprite.png?v=$cacheTimeStamp') no-repeat;
+
+        	/* MAIN MENU */
+
+			&.icon-phone {
+				background-position: ($sprite-phone-top-green-retina-offset-x / 2) ($sprite-phone-top-green-retina-offset-y / 2);
+				background-size: $sprite-phone-top-green-retina-total-width / 2 auto;
+			}
+			&.icon-chat {				
+				background-position: ($sprite-chat-live-retina-offset-x / 2) ($sprite-chat-live-retina-offset-y / 2);
+				background-size: $sprite-chat-live-retina-total-width / 2 auto;
+			}
+			&.icon-loggedout {				
+				background-position: ($sprite-unlogged-user-green-retina-offset-x / 2) ($sprite-unlogged-user-green-retina-offset-y / 2);
+				background-size: $sprite-unlogged-user-green-retina-total-width / 2 auto;	
+			}
+			&.icon-loggedin {
+				background-position: ($sprite-logged-user-green-retina-offset-x / 2) ($sprite-logged-user-green-retina-offset-y / 2);
+				background-size: $sprite-logged-user-green-retina-total-width / 2 auto;	
+			}
+			&.icon-menu {	
+				background-position: ($sprite-menu-retina-offset-x / 2) ($sprite-menu-retina-offset-y / 2);
+				background-size: $sprite-menu-retina-total-width / 2 auto;	
+			}
+
+
+
+
+
+        	/* BASKET */
+
+        	&.icon-delivery-info {
+				background-position: ($sprite-info-retina-offset-x / 2) ($sprite-info-retina-offset-y / 2);
+				background-size: $sprite-info-retina-total-width / 2 auto;				
+			}
+			&.icon-bin {						
+				background-position: ($sprite-bin-retina-offset-x / 2) ($sprite-bin-retina-offset-y / 2);
+				background-size: ($sprite-bin-retina-total-width / 2) auto;				
+			}
+			&.icon-success {
+				background-position: ($sprite-tick-retina-offset-x / 2) ($sprite-tick-retina-offset-y / 2);
+				background-size: ($sprite-tick-retina-total-width / 2) auto;		
+			}
+
+
+
+
+		
+			/* LOGIN - icons contained within form.png & form2x.png */
+
+
+			/* REGISTRATION - icons contained within form.png & form2x.png */
+
+
+			/* FORGOTTEN PASSWORD - icons contained within form.png & form2x.png */
+
+
+
+
+
+
+			/* SLIDE MINI-MENU */
+			&.icon-logout-dark {						
+				background-position: ($sprite-logout-retina-offset-x / 2) ($sprite-logout-retina-offset-y / 2);
+				background-size: ($sprite-logout-retina-total-width / 2) auto;				
+			}
+			&.icon-phone-dark {
+				background-position: ($sprite-phone-retina-offset-x / 2) ($sprite-phone-retina-offset-y / 2);
+				background-size: ($sprite-phone-retina-total-width / 2) auto;				
+			}
+			&.icon-chat-dark {				
+				background-position: ($sprite-chat-big-retina-offset-x / 2) ($sprite-chat-big-retina-offset-y / 2);
+				background-size: ($sprite-chat-big-retina-total-width / 2) auto;				
+			}	
+			&.icon-login-dark {
+				background-position: ($sprite-logged-user-retina-offset-x / 2) ($sprite-logged-user-retina-offset-y / 2);
+				background-size: ($sprite-logged-user-retina-total-width / 2) auto;	
+			}
+			&.icon-join-dark {
+				background-position: ($sprite-new-user-retina-offset-x / 2) ($sprite-new-user-retina-offset-y / 2);
+				background-size: ($sprite-new-user-retina-total-width / 2) auto;	
+			}
+
+			/*&.icon-related-dark {
+				
+			}*/		
+		}
+
+
+
+
+
+		/* Tap Highlight styles */
+		.tap-highlight{
+			.icon{	
+
+				background: url('..img/sprite.png?v=$cacheTimeStamp') no-repeat;
+
+				&.icon-phone {							
+					background-position: ($sprite-phone-green-retina-offset-x / 2) ($sprite-phone-green-retina-offset-y / 2);
+					background-size: ($sprite-phone-green-retina-total-width / 2) auto;			
+				}
+
+				&.icon-logout-dark{
+					background: url($sprite-logout-green-image) $sprite-logout-green-offset-x $sprite-logout-green-offset-y;			
+					background-position: ($sprite-logout-green-retina-offset-x / 2) ($sprite-logout-green-retina-offset-y / 2);
+					background-size: ($sprite-logout-green-retina-total-width / 2) auto;		
+				}
+
+				&.icon-phone-dark{					
+					background-position: ($sprite-phone-green-retina-offset-x / 2) ($sprite-phone-green-retina-offset-y / 2);
+					background-size: ($sprite-phone-green-retina-total-width / 2) auto;			
+				}
+
+				&.icon-chat-dark{					
+					background-position: ($sprite-chat-green-retina-offset-x / 2) ($sprite-chat-green-retina-offset-y / 2);
+					background-size: ($sprite-chat-green-retina-total-width / 2) auto;	
+				}
+				
+
+				&.icon-login-dark {									
+					background-position: ($sprite-logged-user-green-retina-offset-x / 2) ($sprite-logged-user-green-retina-offset-y / 2);
+					background-size: ($sprite-logged-user-green-retina-total-width / 2) auto;	
+				}
+
+				&.icon-join-dark {					
+					background-position: ($sprite-new-user-green-retina-offset-x / 2) ($sprite-new-user-green-retina-offset-y / 2);
+					background-size: ($sprite-new-user-green-retina-total-width / 2) auto;		
+				}
+			}
+		}
+
+}
+
+.icon {
+	&.icon-none{
+		display:none;
+		padding:none;
+		background-image:none;
+	}	
+}

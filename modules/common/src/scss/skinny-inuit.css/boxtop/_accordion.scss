@@ -1,0 +1,153 @@
+@charset "UTF-8";
+///
+// Accordion
+// --------------------------------------------------
+
+
+// Parent container
+.accordion {
+	margin-bottom: 10px;
+}
+
+// Group == heading + body
+.accordion-group {
+	margin-bottom: 0;
+	padding: 0;
+
+	@include media-query(lap-and-up) {
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		width:50%;
+		float:left;
+
+		/*@include old-ie {
+			width:48%;
+		}*/
+
+		&.border-left {
+			border-left:1px solid $generic-border;
+			padding-left:5%;
+		}
+	}
+}
+.accordion-heading {
+		border:0;
+    
+    @include media-query(palm){
+	    border-bottom: 1px solid $form-font;
+	}
+
+
+	.accordion-toggle:link,
+	.accordion-toggle:visited {
+		background:$brand;
+		position: relative;
+		display: block;
+		width:100%;
+		padding:15px 10px;
+		color:$article-background;
+		text-decoration: none;
+		box-sizing: border-box;
+
+		@include media-query(lap-and-up) {
+			background:none !important;
+			color: $standard-font;
+			font-weight:normal;
+			font-size:16px;
+			cursor:default;
+		}
+
+		&:after {
+			content:" ";
+			position: absolute;
+			top:50%;
+			margin-top:-8px;
+			right:15px;
+			width:13px;
+			height:16px;
+			background:transparent url(../img/sprites/icons.png) 0 0 no-repeat;
+			-webkit-transform:rotate(90deg);
+			-moz-transform:rotate(90deg);
+			-ms-transform:rotate(90deg);
+			-o-transform:rotate(90deg);
+			transform:rotate(90deg);
+
+			@include media-query(lap-and-up) {
+				content:none;
+			}
+			
+			border:1px solid purple;
+			/*@include retina2x {
+				background-position: -30px -447px;
+				background-size: $ICONS-SPRITE-RETINA-SIZE;
+			}*/
+		}
+
+		&.collapsed {
+			&:after {
+				-webkit-transform:rotate(0deg);
+				-moz-transform:rotate(0deg);
+				-ms-transform:rotate(0deg);
+				-o-transform:rotate(0deg);
+				transform:rotate(0deg);
+			}
+		}
+
+		&:hover {
+			background: $accordion-toggle;
+		}
+	}
+}
+
+// General toggle styles
+.accordion-toggle {
+	cursor: pointer;
+}
+
+// Inner needs the styles because you can't animate properly with any styles on the element
+.accordion-inner {
+	padding: 20px 15px 20px 15px;
+	border-top: 1px solid $accordion-inner;
+
+	@include media-query(lap-and-up) {
+		border:0;
+		padding:5px 15px;
+		min-height:205px; // yep - a magic number
+
+		ul {
+			margin-bottom:18px; // and another
+		}
+	}
+}
+
+.collapse {
+	position: relative;
+	height: 0;
+	opacity:0;
+	overflow: hidden;
+	-webkit-transition-property:opacity, height;
+	-webkit-transition-timing-function:$EASING-FUNCTION;
+	-webkit-transition-duration:0.5s;
+	-moz-transition-property:opacity, height;
+	-moz-transition-timing-function:$EASING-FUNCTION;
+	-moz-transition-duration:0.5s;
+	-ms-transition-property:opacity, height;
+	-ms-transition-timing-function:$EASING-FUNCTION;
+	-ms-transition-duration:0.5s;
+	-o-transition-property:opacity, height;
+	-o-transition-timing-function:$EASING-FUNCTION;
+	-o-transition-duration:0.5s;
+	transition-property:opacity, height;
+	transition-timing-function:$EASING-FUNCTION;
+	transition-duration:0.5s;
+
+	@include media-query(lap-and-up) {
+		height:auto !important;
+		opacity:1 !important;
+	}
+}
+
+.collapse.in {
+	opacity:1;
+	height: auto;
+}

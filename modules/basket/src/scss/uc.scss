@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/**
+ * inuit
+ */
+@import "../../../common/src/scss/skinny-inuit.css/defaults";
+@import "../../../common/src/scss/skinny-inuit.css/generic/mixins";
+
+/**
+ * boxtop
+ */
+@import "../../../common/src/scss/skinny-inuit.css/boxtop/utils";
+
+/**
+ * UC
+ */
+@import "uc/utils";
+@import "uc/colors";
+@import "uc/base";
+@import "uc/buttons";
+@import "uc/icons";
+@import "uc/breadcrumbs";
+@import "uc/document";
+@import "uc/pages";
+@import "uc/forms";

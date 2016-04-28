@@ -1,0 +1,254 @@
+@charset "UTF-8";
+.address.selectable span {
+	.bullet {
+		@include respond-min($SIZE-DESKTOP) {
+			display: none;
+		}
+	}
+	&:last-of-type .bullet {
+		display: none;
+	}
+}
+
+.uc-icon.promise-icon {
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: block;
+	float: left;
+	height: 30px;
+	width: 30px;
+}
+
+/*.icon {
+	display:inline-block;
+	text-indent:-5000px;
+	width:20px;
+	height:20px;
+	background-color:transparent;
+	background-image:url(/img/sprites/icons.png);
+
+	@include retina2x {
+		background-size: $ICONS-SPRITE-RETINA-SIZE;
+	}
+
+	&.icon-error {
+		width:16px;
+		height:16px;
+		background-position:-63px -1365px;
+		float: left;
+
+		@include retina2x {
+			background-position:-28px -710px;
+		}
+	}
+
+	&.icon-edit {
+		background-position:-62px -482px;
+
+		@include retina2x {
+			background-position:-26px -261px;
+		}
+	}
+
+	&.icon-remove {
+		background-position:-62px -622px;
+
+		@include retina2x {
+			background-position:-26px -331px;
+		}
+	}
+
+	&.icon-remove-disabled {
+		background-position:-62px -722px;
+
+		@include retina2x {
+			background-position:-26px -381px;
+		}
+	}
+
+	&.icon-phone {
+		background-position: -62px -950px;
+		width:22px;
+		height:24px;
+
+		@include retina2x {
+			background-position: -27px -641px;
+		}
+	}
+
+	&.icon-chat {
+		background-position: -57px -996px;
+		width:36px;
+		height:24px;
+
+		@include retina2x {
+			background-position: -18px -587px;
+		}
+	}
+
+}
+*/
+.custom-skin .address {
+	&:hover {
+		i.edit {
+			display: inline-block;
+			margin: -20px 5px 0px 0px;
+			padding: 12px;
+			background: url(../img/sprites/icons.png) -39px -1790px no-repeat;
+			float: right;
+
+			&:hover {
+				display: inline-block;
+				margin: -20px 5px 0px 0px;
+				padding: 12px;
+				background: url(../img/sprites/icons.png) -148px -1790px no-repeat;
+				float: right;
+
+				@include media-query(portable-small) {
+					margin: 0px;
+					padding: 0px;
+				}
+			}
+
+			@include media-query(portable-small) {
+				display: none;
+				margin: 0px;
+				padding: 0px;
+			}
+
+		}
+
+		i.delete {
+			display: inline-block;
+			margin: -20px -50px 0px 0px;
+			padding: 12px;
+			background: url(../img/sprites/icons.png) -39px -1736px no-repeat;
+			float: right;
+
+			&:hover {
+				display: inline-block;
+				margin: -20px -50px 0px 0px;
+				padding: 12px;
+				background: url(../img/sprites/icons.png) -148px -1736px no-repeat;
+				float: right;
+
+				@include media-query(portable-small) {
+					margin: 0px;
+					padding: 0px;
+				}
+			}
+
+			@include media-query(portable-small) {
+				display: none;
+				margin: 0px;
+				padding: 0px;
+			}
+		}
+	}
+
+	@include media-query(portable-small) {
+		i.toggle-object {
+		 	&.edit, &.edit:hover {
+				display: inline-block;
+				background: url('/img/sprites/icons.png') no-repeat -35px 0;
+				width: 12px;
+				height: 16px;
+				float: right;
+				display: none;
+				overflow: auto;
+				margin: auto;
+				position: absolute;
+				top: 0;  
+				bottom: 0; 
+				left: auto; 
+				right: 10px;
+				text-align: right;
+
+				@include retina2x {
+					background: url(../img/sprites/icons.png) -52px -446px no-repeat;
+					background-size: $ICONS-SPRITE-RETINA-SIZE; 
+					width: 12px;
+					height: 16px;
+				}
+			}
+			&.delete, &.delete:hover {
+				display: inline-block;
+				background:url('../img/sprites/icons.png') no-repeat -62px -622px;
+				float: left;
+				width: 20px;
+				height: 20px;
+				margin: -1px -22px 0 2px;
+				z-index:2002;
+				display: none;
+
+				@include retina2x {
+					background: url(../img/sprites/icons.png) no-repeat -26px -331px;
+					background-size: $ICONS-SPRITE-RETINA-SIZE; 
+					width: 20px;
+					height: 20px;
+					margin-bottom: -20px
+				}
+			}
+		}
+	}
+
+	i.selected {
+		width: 26px; height:26px;
+		background: url(../img/sprites/icons.png) -29px -2128px no-repeat;
+		position: absolute;
+		bottom: -8%;
+		right: -8%;
+		box-shadow: 3px 2px 4px 2px #cccccc;
+		border-radius: 20px;
+
+		@include media-query(portable-small) {
+			padding: 16px;
+			background: url(../img/sprites/icons.png) no-repeat -64px -822px;
+			position: absolute;
+			box-shadow: none;
+			top: 19px;
+			left: 4px;
+			height: 0px;
+			z-index: -10;
+
+			@include retina2x {
+				padding: 0px;
+				background-repeat: no-repeat;
+				background-position: -28px -428px;
+				background-size: $ICONS-SPRITE-RETINA-SIZE; 
+				width: 16px;
+				height: 14px;
+				top: 16px;
+				left: 5px;
+			}
+		}
+	}
+
+}
+
+.toggle-button {
+	@include media-query(portable-small) {
+		background: url(../img/sprites/icons.png) 0px -314px;
+		float: right;
+		height: 28px;
+		margin: 3px 44px 0 0;
+		width: 28px;
+		
+		@include retina2x {
+			background-repeat: no-repeat;
+			background-position: 0 -181px;
+			background-size: 114px 1100px;
+		}
+
+		&.active {
+			background-position: -94px -314px;
+
+			@include retina2x {
+				background-repeat: no-repeat;
+				background-position: -86px -181px;
+				background-size: 114px 1100px;
+				margin-right: 44px;
+			}
+		}
+	}
+}

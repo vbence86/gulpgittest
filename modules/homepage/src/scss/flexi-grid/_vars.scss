@@ -1,0 +1,32 @@
+@charset "UTF-8";
+$bodyColor: #292929;
+$backgroundColor: #FFF;
+$borderColor: #f2efed;
+$btnOneBgColor: #FFF;
+$btnOneColor: #292929;
+$btnOneHoverColor: #FFF;
+$btnTwoBgColor: #a2c24c;
+$btnTwoColor: #FFF;
+$btnBgHoverColor: #292929;
+$linkColor: #80b04c;
+$linkHover: #3c9a41;
+
+$iconColor: #a4c646;
+$mobileNavBorderColor: #BFBAB7;
+$promoBlockColor: #292929;
+
+
+/**
+ * WIDTHS / DIMENSIONS
+*/
+
+// We neeed to consolidate all widths/dimensions (mobile, tablet, desktop) into shared, somehow...
+
+$gutterWidth: 1.2%;
+$gutterWidthBorders: 0.2%;
+$columnPadding: 1.4%;
+
+$maxWidth: 990px;
+
+$desktopStart: 1024px;
+$mobileStart: 767px;

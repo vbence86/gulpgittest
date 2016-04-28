@@ -1,0 +1,545 @@
+@charset "UTF-8";
+
+.card-viewport, .card-model, .card-page {
+  width: 100%;
+  height: 100%;
+}
+
+.page-face {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-viewport {
+  margin: 10px auto 20px;
+  @include vendor(perspective, 4000px);
+}
+
+.card-model {
+  position: relative;
+
+  @include vendor(transform-style, preserve-3d);
+  @include vendor(transition, all 700ms ease-out);
+
+}
+
+.card-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include vendor(backface-visibility, hidden);
+  @include vendor(transform-style, preserve-3d);
+  @include vendor(transform-origin, left 50%);
+  @include vendor(transition, all 700ms ease-out);
+}
+
+.page-face {
+  background: #dadada;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+
+  @include vendor(transition, all 800ms ease-in-out);
+
+  img {
+    &:-moz-broken, &:-moz-loading, &:-moz-user-disabled {
+      display: none;
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page-side-top, .page-side-bottom, .page-side-right, .page-side-left {
+  background: #ddd;
+  position: absolute;
+}
+
+.page-side-top, .page-side-bottom {
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.page-side-right, .page-side-left {
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+}
+
+.page-side, .page-face {
+  display: none;
+}
+
+[data-show-side="show-front"] .page-face-0, [data-show-side="show-3d"] .page-face-0, [data-show-side="show-inner-right"] .page-face-2, [data-show-side="show-inner-left"] .page-face-1 {
+  display: block;
+}
+
+[data-show-side="show-back"] {
+  .card-flat .page-face-1, .card-folded .page-face-3 {
+    display: block;
+  }
+}
+
+.face-front {
+  @include vendor(transform, translateZ(1px));
+}
+
+.face-back {
+  @include vendor(transform, translateZ(-1px));
+}
+
+.card-folded {
+  &.card-model {
+    @include vendor(transform, rotateY(1deg));
+  }
+
+  .card-page {
+    &:nth-child(1) {
+      @include vendor(transform, rotateY(-1deg));
+    }
+
+    &:nth-child(2) {
+      @include vendor(transform, rotateY(1deg));
+    }
+  }
+}
+
+.preserve3d {
+  .page-side, .page-face {
+    display: block;
+  }
+
+  .face-back {
+    @include vendor(transform, translateZ(-1px) rotateY(180deg));
+  }
+
+  .card-folded {
+    &.card-model {
+      @include vendor(transform, rotateY(20deg));
+    }
+
+    .card-page {
+      &:nth-child(1) {
+        @include vendor(transform, rotateY(-20deg));
+      }
+
+      &:nth-child(2) {
+        @include vendor(transform, rotateY(20deg));
+      }
+    }
+  }
+
+  .card-flat .card-model {
+    @include vendor(transform, rotateY(0deg));
+  }
+
+  [data-show-side="show-front"] .card-folded .card-page {
+    &:first-child .face-back {
+      @include vendor(filter, brightness(85%));
+    }
+
+    &:last-child {
+      .face-front, .face-back {
+        @include vendor(filter, brightness(85%));
+      }
+    }
+  }
+
+  [data-show-side="show-3d"] .card-folded .card-page {
+    &:first-child .face-back {
+      @include vendor(filter, brightness(85%));
+    }
+
+    &:last-child {
+      .face-front, .face-back {
+        @include vendor(filter, brightness(85%));
+      }
+    }
+  }
+
+  [data-show-side="show-front"] .card-flat .face-back {
+    @include vendor(filter, brightness(60%));
+  }
+
+  [data-show-side="show-3d"] {
+    .card-flat .face-back {
+      @include vendor(filter, brightness(60%));
+    }
+
+    .card-model {
+      @include vendor(transition, all 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275));
+    }
+
+    .card-folded.card-model {
+      @include vendor(transform, rotateX(-5deg) rotateY(-7deg));
+    }
+
+    .card-flat.card-model {
+      @include vendor(transform, rotateY(-25deg));
+    }
+  }
+
+  [data-show-side="show-back"] {
+    .card-folded {
+      &.card-model {
+        @include vendor(transform, rotateY(-180deg));
+      }
+
+      .card-page {
+        &:last-child {
+          @include vendor(transform, rotateY(0deg));
+        }
+
+        &:first-child .face-front, &:last-child .face-front {
+          @include vendor(filter, rightness(85%));
+        }
+
+        &:first-child .face-back {
+          @include vendor(filter, brightness(95%));
+        }
+      }
+    }
+
+    .card-flat {
+      &.card-model {
+        @include vendor(transform, rotateY(-180deg));
+      }
+
+      .face-front {
+        @include vendor(filter, brightness(60%));
+      }
+    }
+  }
+
+  [data-show-side="show-inner-right"] {
+    .card-model {
+      @include vendor(transform, rotateY(0deg));
+    }
+
+    .card-page {
+      &:first-child {
+        @include vendor(transform, rotateY(-95deg));
+      }
+
+      &:last-child {
+        @include vendor(transform, rotateY(0deg));
+      }
+
+      &:first-child .face-back, &:last-child .face-back {
+        @include vendor(filter, brightness(85%));
+      }
+
+      &:first-child .face-front {
+        @include vendor(filter, brightness(95%));
+      }
+    }
+  }
+
+  [data-show-side="show-inner-left"] {
+    .card-model {
+      @include vendor(transform, rotateY(-180deg));
+    }
+
+    .card-page {
+      &:first-child {
+        @include vendor(transform, rotateY(0deg));
+      }
+
+      &:last-child {
+        @include vendor(transform, rotateY(95deg));
+
+      }
+
+      &:first-child .face-front {
+        @include vendor(filter, brightness(85%));
+      }
+
+      &:last-child {
+        .face-back {
+          @include vendor(filter, brightness(85%));
+        }
+
+        .face-front {
+          @include vendor(filter, brightness(95%));
+        }
+      }
+    }
+  }
+}
+
+.card-3d-view-medium {
+  width: 375px;
+  width: 100%;
+
+  .ratio-square-portrait, .card-viewport {
+    height: 300px;
+    width: 300px;
+  }
+
+  .ratio-square-portrait .page-side-top, .card-viewport .page-side-top {
+    @include vendor(transform, rotateX(90deg) translateZ(150px));
+  }
+
+  .ratio-square-portrait .page-side-right, .card-viewport .page-side-right {
+    @include vendor(transform, rotateY(90deg) translateZ(150px));
+  }
+
+  .ratio-square-portrait .page-side-bottom, .card-viewport .page-side-bottom {
+    @include vendor(transform, rotateX(-90deg) translateZ(150px));
+  }
+
+  .ratio-square-portrait .page-side-left, .card-viewport .page-side-left {
+    @include vendor(transform, rotateY(-90deg) translateZ(150px));
+  }
+
+  .ratio-a5-portrait {
+    height: 375px;
+    width: 266.25px;
+
+    .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(187.5px));
+    }
+
+    .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(133.125px));
+    }
+
+    .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(187.5px));
+    }
+
+    .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(133.125px));
+    }
+  }
+
+  .ratio-a6-portrait {
+    height: 288.75px;
+    width: 206.25px;
+
+    .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(144.375px));
+    }
+
+    .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(103.125px));
+    }
+
+    .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(144.375px));
+    }
+
+    .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(103.125px));
+    }
+  }
+
+  .ratio-a6-landscape {
+    height: 206.25px;
+    width: 288.75px;
+
+    .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(103.125px));
+    }
+
+    .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(144.375px));
+    }
+
+    .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(103.125px));
+    }
+
+    .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(144.375px));
+    }
+  }
+
+  .ratio-panoramic-landscape {
+    height: 187.5px;
+    width: 375px;
+
+    .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(93.75px));
+    }
+
+    .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(187.5px));
+    }
+
+    .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(93.75px));
+    }
+
+    .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(187.5px));
+    }
+  }
+
+  .ratio-slim-portrait {
+    height: 375px;
+    width: 108.75px;
+
+    .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(187.5px));
+    }
+
+    .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(54.375px));
+    }
+
+    .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(187.5px));
+    }
+
+    .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(54.375px));
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .card-3d-view-medium {
+    width: 275px;
+    width: 100%;
+
+    .ratio-square-portrait, .card-viewport {
+      height: 220px;
+      width: 220px;
+    }
+
+    .ratio-square-portrait .page-side-top, .card-viewport .page-side-top {
+      @include vendor(transform, rotateX(90deg) translateZ(110px));
+    }
+
+    .ratio-square-portrait .page-side-right, .card-viewport .page-side-right {
+      @include vendor(transform, rotateY(90deg) translateZ(110px));
+    }
+
+    .ratio-square-portrait .page-side-bottom, .card-viewport .page-side-bottom {
+      @include vendor(transform, rotateX(-90deg) translateZ(110px));
+    }
+
+    .ratio-square-portrait .page-side-left, .card-viewport .page-side-left {
+      @include vendor(transform, rotateY(-90deg) translateZ(110px));
+    }
+
+    .ratio-a5-portrait {
+      height: 275px;
+      width: 195.25px;
+
+      .page-side-top {
+        @include vendor(transform, rotateX(90deg) translateZ(137.5px));
+      }
+
+      .page-side-right {
+        @include vendor(transform, rotateY(90deg) translateZ(97.625px));
+      }
+
+      .page-side-bottom {
+        @include vendor(transform, rotateX(-90deg) translateZ(137.5px));
+      }
+
+      .page-side-left {
+        @include vendor(transform, rotateY(-90deg) translateZ(97.625px));
+      }
+    }
+
+    .ratio-a6-portrait {
+      height: 211.75px;
+      width: 151.25px;
+
+      .page-side-top {
+        @include vendor(transform, rotateX(90deg) translateZ(105.875px));
+      }
+
+      .page-side-right {
+        @include vendor(transform, rotateY(90deg) translateZ(75.625px));
+      }
+
+      .page-side-bottom {
+        @include vendor(transform, rotateX(-90deg) translateZ(105.875px));
+      }
+
+      .page-side-left {
+        @include vendor(transform, rotateY(-90deg) translateZ(75.625px));
+      }
+    }
+
+    .ratio-a6-landscape {
+      height: 151.25px;
+      width: 211.75px;
+
+      .page-side-top {
+        @include vendor(transform, rotateX(90deg) translateZ(75.625px));
+      }
+
+      .page-side-right {
+        @include vendor(transform, rotateY(90deg) translateZ(105.875px));
+      }
+
+      .page-side-bottom {
+        @include vendor(transform, rotateX(-90deg) translateZ(75.625px));
+      }
+
+      .page-side-left {
+        @include vendor(transform, rotateY(-90deg) translateZ(105.875px));
+      }
+    }
+
+    .ratio-panoramic-landscape {
+      height: 137.5px;
+      width: 275px;
+
+      .page-side-top {
+        @include vendor(transform, rotateX(90deg) translateZ(68.75px));
+      }
+
+      .page-side-right {
+        @include vendor(transform, rotateY(90deg) translateZ(137.5px));
+      }
+
+      .page-side-bottom {
+        @include vendor(transform, rotateX(-90deg) translateZ(68.75px));
+      }
+
+      .page-side-left {
+        @include vendor(transform, rotateY(-90deg) translateZ(137.5px));
+      }
+    }
+
+    .ratio-slim-portrait {
+      height: 275px;
+      width: 79.75px;
+
+      .page-side-top {
+        @include vendor(transform, rotateX(90deg) translateZ(137.5px));
+      }
+
+      .page-side-right {
+        @include vendor(transform, rotateY(90deg) translateZ(39.875px));
+      }
+
+      .page-side-bottom {
+        @include vendor(transform, rotateX(-90deg) translateZ(137.5px));
+      }
+
+      .page-side-left {
+        @include vendor(transform, rotateY(-90deg) translateZ(39.875px));
+      }
+    }
+  }
+}

@@ -1,0 +1,502 @@
+@charset "UTF-8";
+#range{
+	.grid--center {
+		margin-top: -8px;
+	}
+}
+.range {
+
+	/**
+	* Range page Brands
+	**/
+	.brands{
+		background-color: #e9e7e6;
+		height: 36px;
+		margin-top: 0;
+		padding-top: 0;
+		ul{
+			float: right;
+			list-style: none;
+			margin: 0 auto;
+			text-align: right;
+			height: 33px;
+			li{
+				float: left;
+				span{
+					display: inline-block;
+					padding: 8px;
+					margin: 0;
+					font-size: 11px;
+					line-height: 22px;
+					text-decoration: none;
+					height: $sprite-range-ourbrands-height;
+					&.strapline{
+						background: url($sprite-range-ourbrands-image) $sprite-range-ourbrands-offset-x $sprite-range-ourbrands-offset-y no-repeat;
+						width: $sprite-range-ourbrands-width;
+						height: $sprite-range-ourbrands-height;
+						border: none;
+						padding: 0;
+					}
+					img{
+						vertical-align: middle;
+					}
+				}
+				&.current{
+					background-color: #fff;
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	.header{
+		padding: 12px 0;
+		
+		.strapline{
+			display: inline-block;
+			background: url($sprite-range-make-it-special-image) $sprite-range-make-it-special-offset-x $sprite-range-make-it-special-offset-y no-repeat;
+			width: $sprite-range-make-it-special-width;
+			height: $sprite-range-make-it-special-height;
+			border: none;
+			margin: 4px 0 0 0;
+		}
+		.nav{
+			float: right;
+			list-style: none;
+			margin: 8px 0 0 0;
+			padding: 0 20px 0 0;
+			text-align: right;
+			li{
+				border: none;
+				padding: 0 0 0 34px;
+				&:first-of-type{
+					padding: 0;
+				}
+				a{
+					display: inline-block;
+					&.icon-upload{
+						background: url($sprite-range-upload-image) $sprite-range-upload-offset-x $sprite-range-upload-offset-y no-repeat;
+						width: $sprite-range-upload-width;
+						height: $sprite-range-upload-height;
+					}
+					&.icon-help{
+						background: url($sprite-range-help-image) $sprite-range-help-offset-x $sprite-range-help-offset-y no-repeat;
+						width: $sprite-range-help-width;
+						height: $sprite-range-help-height;
+					}
+					&.icon-info{
+						background: url($sprite-range-info-image) $sprite-range-info-offset-x $sprite-range-info-offset-y no-repeat;
+						width: $sprite-range-info-width;
+						height: $sprite-range-info-height;
+					}
+					&.icon-login{
+						background: url($sprite-range-account-image) $sprite-range-account-offset-x $sprite-range-account-offset-y no-repeat;
+						width: $sprite-range-account-width;
+						height: $sprite-range-account-height;
+					}
+					&.icon-basket{
+						background: url($sprite-range-basket-image) $sprite-range-basket-offset-x $sprite-range-basket-offset-y no-repeat;
+						width: $sprite-range-basket-width;
+						height: $sprite-range-basket-height;
+					}
+				}
+
+			}
+
+			@include media-query(portable) {
+				margin: 14px 0 0 0;
+				li{
+					a{
+						display: inline-block;
+						&.icon-upload{
+							background: url($sprite-range-upload-50-image) $sprite-range-upload-50-offset-x $sprite-range-upload-50-offset-y no-repeat;
+							width: $sprite-range-upload-50-width;
+							height: $sprite-range-upload-50-height;
+						}
+						&.icon-help{
+							background: url($sprite-range-help-50-image) $sprite-range-help-50-offset-x $sprite-range-help-50-offset-y no-repeat;
+							width: $sprite-range-help-50-width;
+							height: $sprite-range-help-50-height;
+						}
+						&.icon-info{
+							background: url($sprite-range-info-50-image) $sprite-range-info-50-offset-x $sprite-range-info-50-offset-y no-repeat;
+							width: $sprite-range-info-50-width;
+							height: $sprite-range-info-50-height;
+						}
+						&.icon-login{
+							background: url($sprite-range-account-50-image) $sprite-range-account-50-offset-x $sprite-range-account-50-offset-y no-repeat;
+							width: $sprite-range-account-50-width;
+							height: $sprite-range-account-50-height;
+						}
+						&.icon-basket{
+							background: url($sprite-range-basket-50-image) $sprite-range-basket-50-offset-x $sprite-range-basket-50-offset-y no-repeat;
+							width: $sprite-range-basket-50-width;
+							height: $sprite-range-basket-50-height;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	* Range page menu
+	**/
+	@mixin range-menu-item ($name, $image, $offset-x, $offset-y, $width, $height, $selected-offset-x, $selected-offset-y,
+		$selected-width, $selected-height, $retina-offset-x, $retina-offset-y, $retina-total-width,
+		$selected-retina-offset-x, $selected-retina-offset-y, $selected-retina-total-width
+		){
+
+		.item {
+
+			&.selected, &:active, &:hover {
+
+				.icon.#{$name} {
+					background: url($image)  $selected-offset-x  $selected-offset-y;
+					width:  $selected-width;
+					height:  $selected-height;
+
+					@media  only screen and (-webkit-min-device-pixel-ratio: 2),
+					only screen and (min-resolution: 192dpi) {
+						background-position: ($selected-retina-offset-x / 2) ($selected-retina-offset-y / 2);
+						background-size: $selected-retina-total-width / 2 auto;
+					}
+				}
+			}
+		}
+
+		.icon {
+
+			&.#{$name} {
+				background: url($image)  $offset-x  $offset-y;
+				width:  $width;
+				height:  $height;
+			}
+
+			@media  only screen and (-webkit-min-device-pixel-ratio: 2),
+			only screen and (min-resolution: 192dpi) {
+
+				&.#{$name} {
+					background-position: ($retina-offset-x / 2) ($retina-offset-y / 2);
+					background-size: $retina-total-width / 2 auto;
+				}
+			}
+		}
+	}
+
+	.menu {
+		width: 100%;
+		background-color: $range-page-background;
+		display: table;
+		table-layout: fixed;
+
+		.item {
+			display: table-cell;
+			text-align: center;
+			padding: 11px 0 8px;
+			font-family: "Josefin Sans" sans-serif;
+			text-decoration: none;
+
+			&.selected, &:active, &:hover {
+
+				.title {
+					 color: #70aa40;
+				}
+			}
+		}
+
+		.title {
+			@include font-size(20px, false);
+			line-height: 21px;
+			display: block;
+			font-weight: normal;
+			padding: 4px 0 0 0;
+
+			@include media-query(portable) {
+				@include font-size(18px, false);
+				white-space: nowrap;
+			}
+		}
+
+		@include range-menu-item (prints, $sprite-range-menu-prints-image, $sprite-range-menu-prints-offset-x,
+			$sprite-range-menu-prints-offset-y, $sprite-range-menu-prints-width, $sprite-range-menu-prints-height,
+			$sprite-range-menu-prints-selected-offset-x, $sprite-range-menu-prints-selected-offset-y,
+			$sprite-range-menu-prints-selected-width, $sprite-range-menu-prints-selected-height,
+			$sprite-range-menu-prints-retina-offset-x, $sprite-range-menu-prints-retina-offset-y,
+			$sprite-range-menu-prints-retina-total-width, $sprite-range-menu-prints-selected-retina-offset-x,
+			$sprite-range-menu-prints-selected-retina-offset-y, $sprite-range-menu-prints-selected-retina-total-width
+		);
+
+		@include range-menu-item (books, $sprite-range-menu-books-image, $sprite-range-menu-books-offset-x,
+			$sprite-range-menu-books-offset-y, $sprite-range-menu-books-width, $sprite-range-menu-books-height,
+			$sprite-range-menu-books-selected-offset-x, $sprite-range-menu-books-selected-offset-y,
+			$sprite-range-menu-books-selected-width, $sprite-range-menu-books-selected-height,
+			$sprite-range-menu-books-retina-offset-x, $sprite-range-menu-books-retina-offset-y,
+			$sprite-range-menu-books-retina-total-width, $sprite-range-menu-books-selected-retina-offset-x,
+			$sprite-range-menu-books-selected-retina-offset-y, $sprite-range-menu-books-selected-retina-total-width
+		);
+
+		@include range-menu-item (wall, $sprite-range-menu-wall-image, $sprite-range-menu-wall-offset-x,
+			$sprite-range-menu-wall-offset-y, $sprite-range-menu-wall-width, $sprite-range-menu-wall-height,
+			$sprite-range-menu-wall-selected-offset-x, $sprite-range-menu-wall-selected-offset-y,
+			$sprite-range-menu-wall-selected-width, $sprite-range-menu-wall-selected-height,
+			$sprite-range-menu-wall-retina-offset-x, $sprite-range-menu-wall-retina-offset-y,
+			$sprite-range-menu-wall-retina-total-width, $sprite-range-menu-wall-selected-retina-offset-x,
+			$sprite-range-menu-wall-selected-retina-offset-y, $sprite-range-menu-wall-selected-retina-total-width
+		);
+
+		@include range-menu-item (mugs, $sprite-range-menu-mugs-image, $sprite-range-menu-mugs-offset-x,
+			$sprite-range-menu-mugs-offset-y, $sprite-range-menu-mugs-width, $sprite-range-menu-mugs-height,
+			$sprite-range-menu-mugs-selected-offset-x, $sprite-range-menu-mugs-selected-offset-y,
+			$sprite-range-menu-mugs-selected-width, $sprite-range-menu-mugs-selected-height,
+			$sprite-range-menu-mugs-retina-offset-x, $sprite-range-menu-mugs-retina-offset-y,
+			$sprite-range-menu-mugs-retina-total-width, $sprite-range-menu-mugs-selected-retina-offset-x,
+			$sprite-range-menu-mugs-selected-retina-offset-y, $sprite-range-menu-mugs-selected-retina-total-width
+		);
+
+		@include range-menu-item (cards, $sprite-range-menu-cards-image, $sprite-range-menu-cards-offset-x,
+			$sprite-range-menu-cards-offset-y, $sprite-range-menu-cards-width, $sprite-range-menu-cards-height,
+			$sprite-range-menu-cards-selected-offset-x, $sprite-range-menu-cards-selected-offset-y,
+			$sprite-range-menu-cards-selected-width, $sprite-range-menu-cards-selected-height,
+			$sprite-range-menu-cards-retina-offset-x, $sprite-range-menu-cards-retina-offset-y,
+			$sprite-range-menu-cards-retina-total-width, $sprite-range-menu-cards-selected-retina-offset-x,
+			$sprite-range-menu-cards-selected-retina-offset-y, $sprite-range-menu-cards-selected-retina-total-width
+		);
+
+		@include range-menu-item (cases, $sprite-range-menu-cases-image, $sprite-range-menu-cases-offset-x,
+			$sprite-range-menu-cases-offset-y, $sprite-range-menu-cases-width, $sprite-range-menu-cases-height,
+			$sprite-range-menu-cases-selected-offset-x, $sprite-range-menu-cases-selected-offset-y,
+			$sprite-range-menu-cases-selected-width, $sprite-range-menu-cases-selected-height,
+			$sprite-range-menu-cases-retina-offset-x, $sprite-range-menu-cases-retina-offset-y,
+			$sprite-range-menu-cases-retina-total-width, $sprite-range-menu-cases-selected-retina-offset-x,
+			$sprite-range-menu-cases-selected-retina-offset-y, $sprite-range-menu-cases-selected-retina-total-width
+		);
+
+		@include range-menu-item (gifts, $sprite-range-menu-gifts-image, $sprite-range-menu-gifts-offset-x,
+			$sprite-range-menu-gifts-offset-y, $sprite-range-menu-gifts-width, $sprite-range-menu-gifts-height,
+			$sprite-range-menu-gifts-selected-offset-x, $sprite-range-menu-gifts-selected-offset-y,
+			$sprite-range-menu-gifts-selected-width, $sprite-range-menu-gifts-selected-height,
+			$sprite-range-menu-gifts-retina-offset-x, $sprite-range-menu-gifts-retina-offset-y,
+			$sprite-range-menu-gifts-retina-total-width, $sprite-range-menu-gifts-selected-retina-offset-x,
+			$sprite-range-menu-gifts-selected-retina-offset-y, $sprite-range-menu-gifts-selected-retina-total-width
+		);
+
+
+	}
+
+	.categories {
+		width: 100%;
+		padding: 20px;
+		background-color: $range-page-categories-background;
+		@if $global-border-box == false{
+			@include vendor(box-sizing, border-box);
+		}
+
+		.top {
+			display: table;
+			width: 100%;
+			margin-bottom: 24px;
+		}
+
+		.left-top {
+			display: table-cell;
+			vertical-align: bottom;
+			width: 67%;
+			background-image: url("../img/canvas.png");
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-color: $range-page-background;
+
+			@if $global-border-box == false{
+				@include vendor(box-sizing, border-box);
+			}
+
+			.description {
+				display: inline-block;
+				background-color: $range-page-background;
+				padding-left: 17px;
+				padding-right: 15px;
+				float: right;
+				font-family: "Josefin Sans" sans-serif;
+				width: 47.68%;
+				@if $global-border-box == false{
+					@include vendor(box-sizing, border-box);
+				}
+
+				.title {
+					display: inline-block;
+					@include font-size(40px, false);
+					padding: 10px 0 5px 0;
+
+					@include media-query(portable) {
+						@include font-size(24px, false);
+						white-space: nowrap;
+						// padding: 10px 0 5px 0;
+					}
+
+				}
+
+				.options {
+					padding: 0;
+					margin-top: -6px;
+					margin-left: 0;
+					list-style-type:none;
+					@include font-size($h4-size, false);
+					font-size: 1.325em;
+					line-height: 1.5em;
+
+					li:before
+					{
+						content: "-";
+					}
+				}
+
+				.price {
+					font-family: arial, sans-serif;
+					@include font-size($h4-size, false);
+					font-weight: bold;
+					float: right;
+
+					.value {
+						@include font-size($h3-size, false);
+						color: #b70059;
+					}
+				}
+
+				.button {
+					display: inline-block;
+					margin-top: 12px;
+					margin-bottom: 0px;
+					line-height: 40px;
+					padding: 0; 
+					font-family: "Josefin Sans" sans-serif;
+					max-width: 200px;
+					@include font-size(29px, false);
+					float: right;
+					clear: both;
+
+					@include media-query(portable) {
+						@include font-size(20px, false);
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+
+		.spacer {
+			width: 22px;
+		}
+
+		.right-top {
+			display: table-cell;
+			padding-left: 2.9%;
+			width: 33%;
+
+			background-image: url("../img/promo.png");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+
+			@if $global-border-box == false{
+				@include vendor(box-sizing, border-box);
+			}
+		}
+
+		.bottom {
+
+			.item {
+				font-family: "Josefin Sans" sans-serif;
+				margin-top: 17px;
+				padding-left: 22px;
+
+				.title {
+					@include font-size(29px, false);
+				}
+
+				.thumb {
+					display: block;
+					height: 129px;
+					margin-bottom: 10px;
+					
+
+					&.item1{
+						background-image: url("../img/item-1.png");
+						background-repeat: no-repeat;
+						background-size: 100% 100%;
+					}
+					&.item2{
+						background-image: url("../img/item-2.png");
+						background-repeat: no-repeat;
+						background-size: 100% 100%;
+					}
+					&.item3{
+						background-image: url("../img/item-3.png");
+						background-repeat: no-repeat;
+						background-size: 100% 100%;
+					}
+					
+					@include media-query(portable-small) {
+						height: 236px;
+						&.item1{
+							background-image: url("../img/item-1-portrait.png");
+							background-repeat: no-repeat;
+							background-size: 100% 100%;
+						}
+						&.item2{
+							background-image: url("../img/item-2-portrait.png");
+							background-repeat: no-repeat;
+							background-size: 100% 100%;
+						}
+						&.item3{
+							background-image: url("../img/item-3-portrait.png");
+							background-repeat: no-repeat;
+							background-size: 100% 100%;
+						}
+					}
+				}
+
+
+
+				.price {
+					font-family: arial, sans-serif;
+					@include font-size($h55-size, false);
+					font-weight: bold;
+					margin-top: 4px;
+					display: table;
+					width: 100%;
+
+					&:after {
+						content: "";
+						border-top: solid 2px #f0efed;
+						display: table-cell;
+						position: relative;
+						top: 9px;
+						width: 100%;
+					}
+
+					.value {
+						display: table-cell;
+						white-space: nowrap;
+
+						.old-value {
+							text-decoration: line-through;
+							@include font-size($h45-size, false);
+						}
+
+						.new-value {
+							color: #b70059;
+							@include font-size($h45-size, false);
+						}
+					}
+				}
+
+				.description {
+					@include font-size($h5-size, false);
+					line-height: 26px;
+					margin: 6px 0 0 0;
+					display: block;
+				}
+			}
+		}
+	}
+
+}

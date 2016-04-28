@@ -1,0 +1,81 @@
+@charset "UTF-8";
+.studio-header {
+	background-color: $papershaker-studio-background;
+	margin: 17px 33px 0;
+	padding: 8px 25px 12px;
+	position: relative;
+	min-height: 80px;
+	@if $global-border-box == false {
+		@include vendor(box-sizing, border-box);
+	}
+
+	.back-button, .next-button {
+		position: absolute;
+		top: 6px;
+		max-width: 30%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&.disabled {
+			opacity: 0.5;
+		}
+	}
+
+	.back-button {
+		left: 10px;
+	}
+
+	.next-button {
+		right: 10px;
+	}
+
+	.page-title {
+		width: 40%;
+		display: inline-block;
+		position: relative;
+		left: 30%;
+
+		h2 {
+			color: $papershaker-text;
+			float: none;
+		}
+
+		.design-name {
+			@include font-size($h2-size, false);
+			margin: 0;
+			font-weight: normal;
+		}
+
+		.occasion-name {
+			@include font-size($h45-size, false);
+			float: none;
+			text-align: center;
+			color: $papershaker-text;
+			font-weight: normal;
+		}
+	}
+}
+
+.studio-container {
+	margin: 0 8px;
+
+	.module-menu {
+		
+		.menu-item {
+			
+			.content {
+				clear: both;
+			}
+
+			h2 {
+				float: none;
+			}
+		
+		}
+	
+	}
+
+}
+
+.three-segment-sub-header .page-title h2 { float: none; color: $papershaker-text; }

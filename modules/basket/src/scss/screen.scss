@@ -1,0 +1,28 @@
+﻿@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ *
+ * sass --watch style.scss:style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * Setup
+ */
+@import "../../../common/src/scss/vars";
+@import "sprite";
+@import "svg-sprite";
+@import "../../../common/src/scss/skinny-inuit.css/inuit";
+@import "../../../common/src/scss/skinny-inuit.css/boxtop/colors";
+@import "../../../common/src/scss/skinny-inuit.css/boxtop";
+@import "../../../common/src/scss/float/float";
+/**
+ * Vendor styles
+ */
+@import "../../../common/src/scss/vendor/fancySelect";
+@import "../../../common/src/scss/vendor/ps-3d-gallery";

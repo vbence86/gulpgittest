@@ -1,0 +1,420 @@
+@charset "UTF-8";
+form.uc.address {
+
+	h4, span {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		@include media-query(portable-small) {
+			max-width: 100%;
+		}
+	}
+
+	label {
+		display: block;
+		float: right;
+		width: 127px;
+		margin-top: 7px;
+		margin-left: -3px;
+		text-align: right;
+		font-weight: bold;
+		cursor: pointer;
+		color: $form-font;
+		@include font-size($small-size, false);
+
+		strong {
+			margin-left:5px;
+		}
+		
+		@include media-query(portable-small) {
+			display:block;
+			float:left;
+			margin-top:7px;
+			margin-left:20px;
+			text-align: left;
+			font-weight:bold;
+			cursor: pointer;
+			color:$form-font;
+			margin-left: 0px;
+		}	
+	}
+
+	fieldset {
+		display:block;
+		margin: 12px 10px;
+		padding: 0;
+		border:0;
+        width: 100%;
+
+		@include retina2x {
+			margin: 6px 10px;
+		}
+		
+		label {
+			float: left;
+			margin-right: 20px;
+			@include media-query(portable-small) {
+				display: none;
+			}
+		}
+
+		#postcode {
+			width: 265px;
+			@include media-query(portable-small) {
+				width: -webkit-calc(100% - 55px);
+			}
+			&.lookup {
+				width: 155px;
+				@include media-query(portable-small) {
+					width: -webkit-calc(100% - 175px);
+				}
+			}			
+		}
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	textarea {
+		width:265px;
+		padding:6px;
+		border: 1px solid $generic-border;
+	}
+	
+	textarea{ 
+		height: 70px;
+		resize: none;
+
+		@include retina2x {
+			height: 30px;
+		}
+	}
+
+	select{
+		width: 279px;
+		height: 26px;
+
+		@include media-query(portable-small) {
+			height: auto;
+		}
+	}
+
+	input, textarea, select {
+		font-family: Arial;
+		font-size:12px;
+		color:$form-font;
+	}
+
+	.required {
+		color:$brand;
+		font-weight: normal;
+		cursor: default;
+	}
+
+	.required-label {
+		margin-left:41px;
+
+		@include media-query(portable-small) {
+			margin: 12px 10px;
+		}
+	}
+
+	fieldset.checkbox {
+		margin-left:154px;
+		width:256px;
+		min-height: 20px;
+		background-color: $lightbox-background;
+
+		@include media-query(portable-small) {
+			padding: 10px 0;
+		}
+
+		label {
+			text-align: left;
+			margin:2px 0 0 10px;
+			width: 87%;
+			font-weight: normal;
+
+			&.terms {
+				position: relative;
+				left: 20px;
+
+				p {
+					display: inline-block;
+					margin: 0;
+				}
+			}
+		}
+
+		p {
+			small {
+				color: inherit;
+				font-weight: bold;
+			}
+		}
+
+		input[type="checkbox"] {
+			float:left;
+		}
+	}
+
+	.delivery-products {
+		label {
+			width: auto;
+		}
+	}
+
+	@include media-query(portable-small) {
+		fieldset {
+			//margin:0;
+
+			&.checkbox {
+				width:auto;
+				margin:0;
+
+				label {
+					display:block;
+				}
+			}
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		textarea,
+		select {
+			width:87%;
+			padding:7px 7px 7px 40px;
+			border-radius: 4px;
+			border: 2px solid $generic-border;
+			font-size: 13px;
+			background:transparent url(../img/sprites/form.png) 0 0 no-repeat;
+			background-size: 37px 1096px;
+			@include vendor(appearance, listbox);
+
+			
+			&:focus {
+				border: 2px solid $brand;
+				outline: 0;
+			}
+		}
+
+		select {
+			width:98%;
+			width:-webkit-calc(100% - 5px);
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		textarea {
+			background:transparent url(../img/sprites/form2x.png) 0 0 no-repeat;
+			background-size:37px 1096px;
+			width:-webkit-calc(100% - 55px);
+			@include vendor(box-sizing, initial);
+
+			&[name="first_name"] {
+				background-position:-1px -165px;
+
+				&:focus {
+					background-position: -1px -720px;
+				}
+			}
+
+
+			&[name="last_name"] {
+				background-position:-1px -205px;
+
+				&:focus {
+					background-position: -1px -760px;
+				}
+			}
+
+			&[name="email"] {
+				background-position:-1px -2px;
+
+				&:focus {
+					background-position: -1px -557px;
+				}
+			}
+
+			&[name="confirm_email"] {
+				background-position:-1px -42px;
+
+				&:focus {
+					background-position: -1px -597px;
+				}
+			}
+
+			&[name="password"] {
+				background-position:-1px -85px;
+
+				&:focus {
+					background-position: -1px -640px;
+				}
+			}
+
+			&[name="confirm_password"] {
+				background-position:-1px -125px;
+
+				&:focus {
+					background-position: -1px -680px;
+				}
+			}
+
+			&[name="street"] {
+				background-position: -1px -245px;
+
+				&:focus {
+					background-position: -1px -800px;
+				}
+			}
+
+			&[name="town"] {
+				background-position: -1px -350px;
+
+				&:focus {
+					background-position: -1px -905px;
+				}
+			}
+
+			&[name="county"] {
+				background-position: -1px -430px;
+
+				&:focus {
+					background-position: -1px -985px;
+				}
+			}
+
+			&[name="postcode"] {
+				background-position: -1px -470px;
+
+				&:focus {
+					background-position: -1px -1025px;
+				}
+			}
+
+			&[name="telephone"] {
+				background-position: -1px -510px;
+
+				&:focus {
+					background-position: -1px -1065px;
+				}
+			}
+		}
+	}
+}
+
+
+/*form.login {
+	@include respond-min($MOBILE-BREAK) {
+		float: left;
+	}
+
+	fieldset {
+		margin:0;
+		padding:5px 0;
+	}
+
+	label {
+		width:auto;
+		margin-bottom:5px;
+	}
+}
+*/
+
+.address-billing {
+	form.uc.address {
+		fieldset {
+			&.checkbox {
+				padding: 10px 12px;
+			}
+
+			@include media-query(portable-small) {
+				margin: 10px 0;
+
+				#postcode {
+					width: -webkit-calc(100% - 55px);
+				}
+			}
+		}		
+	}
+}
+
+.address-payment-selection {
+	form.uc {
+		fieldset{
+			position: relative;
+
+			input[type="radio"] {
+				position: absolute;
+				bottom: 2px;
+				vertical-align: middle;
+			}
+
+			label {
+				box-sizing: border-box;
+				display: inline-block;
+				float: none;
+				margin: 0;
+				padding-left: 30px;
+				text-align: left;
+				white-space: nowrap;
+				width: 100%;
+
+				img {
+					margin-right: 10px;
+					position: relative;
+					top: 10px;
+					width: 55px;
+				}
+			}
+		}
+	}
+}
+
+/*
+form.register {
+	
+	fieldset {
+		margin: 12px 0;
+	
+		&.checkbox {
+			margin-bottom: -5px;
+			background: none;
+
+			label {
+				small, span {
+					color: inherit;
+					font-weight: bold;
+				}
+			}
+
+			@include respond-min($MOBILE-BREAK) {
+				background:none;
+				width:450px;
+				margin-left:140px;
+			}
+
+			@include media-query(portable-small) {
+				margin: 0px 4px -5px 0px;
+
+				label {
+					font-size:10px;
+					margin-top:0px;
+					display:inline;
+					text-align:left;
+				}
+			}
+
+			@include retina2x {
+				label {
+					margin: 0;
+					padding: 0 0 0 5px;
+				}
+			}
+		}
+	}
+}
+*/

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+button,
+.button:link,
+.button:visited {
+	@include font-size($milli-size);
+	font-weight: bold;
+	padding:7px 12px 8px;
+
+	@include media-query(palm) {
+		padding: 10px 12px 10px;
+		@include font-size($h6-size);
+	}
+
+	&:hover {
+		opacity:0.8;
+	}
+
+	&[disabled="disabled"] {
+		background:$generic-border;
+		cursor:auto;
+
+		&:hover {
+			opacity:1;
+		}
+	}
+
+	&.order {
+		background-color: $hofmannMainButtonBackground;
+		color: $hofmannButtonFont;
+		background-image: none;
+		font-weight: bold;
+
+		&:hover {
+			opacity:1;
+			background-image: none;
+			background-color: $hofmannMainButtonHoverBackground;
+		}
+
+		&:active {
+			opacity:1;
+			background-image: none;
+			background-color: $hofmannMainButtonActiveBackground;
+		}
+	}
+
+	&.primary,
+	&.green-one-color,
+	&.secondary,
+	&.multi	{
+		background-color: $hofmannAdditionalButtonBackground;
+		color: $hofmannButtonFont;
+		background-image: none;
+
+		&:hover {
+			color: $hofmannButtonFont;
+			opacity:1;
+			background-image: none;
+			background-color: $hofmannAdditionalButtonHoverBackground;
+		}
+
+		&:active {
+			color: $hofmannButtonFont;
+			opacity:1;
+			background-image: none;
+			background-color: $hofmannAdditionalButtonActiveBackground;
+		}
+	}
+
+	&.primary-size,
+	&.multi-size {
+		@include font-size($milli-size, false);
+		padding:7px 12px 8px;
+
+		@include media-query(palm) {
+			padding: 10px 12px 10px;
+			@include font-size($h6-size, false);
+		}
+	}
+
+	&.promotion-button {
+		padding: 0px 1em 0px 0.5em;
+		line-height: 28px;
+		height: 30px;
+
+		@include media-query(portable) {
+			padding-top: 0.25em;
+			height: 35px;
+		}
+	}
+}
+
+.basket-component .offer-panel .button {
+	@extend button.multi;
+}
+

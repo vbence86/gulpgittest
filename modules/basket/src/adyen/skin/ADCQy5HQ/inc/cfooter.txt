@@ -1,0 +1,107 @@
+</div>
+<script type="text/javascript">
+
+	function getParamValue (param) {
+    	return decodeURI(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURI(param).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+   	var ref = decodeURIComponent(getParamValue('skinURL')) || '';
+	var skinURLel = document.getElementById('skinURL');
+    if (skinURLel) {
+    	if (!ref) {
+    		ref = decodeURIComponent(skinURLel.textContent);
+    	}
+    	var skinParent =  skinURLel.parentElement;
+    	skinParent.parentElement.removeChild(skinParent);
+    }
+	var body = document.getElementsByTagName("BODY")[0];
+	if (ref) {
+		var photoboxAdyen = document.getElementById('photoboxAdyen');
+		var xhr= new XMLHttpRequest();
+		xhr.open('GET', ref, true);
+		xhr.onreadystatechange= function() {
+			if (this.readyState!==4) return;
+			if (this.status!==200) return;
+			var container = document.createElement('div');
+			container.innerHTML= this.responseText;
+			document.body.appendChild(container);
+			document.getElementById('adyenForm').appendChild(photoboxAdyen);
+			setTimeout(function() {
+				body.style.display = 'inherit';
+				updatePMDetailsHeight();
+				var additionalInfo = document.getElementById('pbxAdditionalInfo');
+				if (additionalInfo) {
+					var pm = document.getElementById('paymentMethods');
+					pm.parentNode.insertBefore(additionalInfo, pm);
+				}
+				addBXTScripts();
+			}, 1000);
+
+		};
+		xhr.send();
+    } else {
+		body.style.display = 'inherit';
+    }
+
+    animatedcollapse.prototype.slidedown=function(){
+    	if (typeof this.runtimer=="undefined" || this.runtimer==null){ //if animation isn't already running or has stopped running
+    		if (isNaN(this.contentheight)) {//if content height not available yet (until window.onload)
+    			//alert("Please wait until document has fully loaded then click again")
+    		} else if (parseInt(this.divObj.style.height)==0){ //if content is collapsed
+    			this.startTime=new Date().getTime() //Set animation start time
+    			var height = this.divObj.style.height;
+        		this.divObj.style.height = 'inherit';
+        		this.contentheight = this.divObj.offsetHeight;
+        		this.divObj.style.height = height;
+    			this._slideengine("down",0)
+    		}
+    	}
+    }
+
+    animatedcollapse.prototype.forceslidedown=function(offset){
+    	if (typeof this.runtimer=="undefined" || this.runtimer==null){ //if animation isn't already running or has stopped running
+    		if (isNaN(this.contentheight)) {//if content height not available yet (until window.onload)
+    			//alert("Please wait until document has fully loaded then click again")
+    		} else { //if content is collapsed
+    			this.startTime=new Date().getTime() //Set animation start time
+    			var height = this.divObj.style.height;
+        		this.divObj.style.height = 'inherit';
+        		this.contentheight = this.divObj.offsetHeight;
+        		this.divObj.style.height = height;
+    			this._slideengine("down",offset)
+    		}
+    	}
+    }
+
+    function updatePMDetailsHeight() {
+    	for (var i=0; i < details.length; i++) {
+        	if (details[i].isExpanded) {
+        		details[i].divObj.style.height = 'inherit';
+        		details[i].contentheight = details[i].divObj.offsetHeight;
+        		details[i].divObj.style.height = details[i].contentheight;
+        	}
+        }
+    }
+
+    function toggleElement ( elId ) {
+        if ( notNull( document.getElementById( elId ) ) ) {
+            if ( document.getElementById( elId ).style.display == 'block' ) {
+                document.getElementById( elId ).style.display = 'none';
+            } else {
+                document.getElementById( elId ).style.display = 'block';
+            }
+        }
+        updatePMDetailsHeight();
+        return false;
+    }
+
+    function addBXTScripts () {
+    	var scripts = document.querySelectorAll('[data-bxt-script]');
+    	var head = document.getElementsByTagName('head')[0];
+    	for (var i=0; i < scripts.length; i++) {
+    		var newScript = document.createElement('script');
+    		newScript.setAttribute('src', scripts[0].getAttribute('src'));
+    		head.appendChild(newScript);
+    	}
+    }
+</script>
+

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/**
+ * inuit
+ */
+@import "../../../common/src/scss/skinny-inuit.css/defaults";
+@import "../../../common/src/scss/skinny-inuit.css/generic/mixins";
+
+/**
+ * adyen
+ */
+@import "uc/adyen/adyen";
+
+

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.delivery-detail-view-modal {
+	table {	border: solid 1px $delivery-detail-view-table-border;}
+
+	tr { background-color: $delivery-detail-view-table-row-background-1;}
+
+	td {text-align: center;}
+
+	.odd {background-color: $delivery-detail-view-table-row-background-2;}
+
+	thead th {
+		background-color: $delivery-detail-view-thead-background;
+		text-align: center;
+	}
+
+	th.total, .subtotal	{text-align: right;}
+
+	.product {text-align: left;}
+
+	col {
+		&.quantity, &.product {
+			width: 10%;
+			text-align: center;
+		}
+
+		&.product {
+			width: 68%;
+		}
+	}
+}
+

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+$baseFontSize: 16px;
+/**
+ * Convert Pixels to EMs
+ * formula (Desired size = pixels / context)
+ * usage: max-width: em(32, 14);
+ */
+@function em($pixels, $context: $baseFontSize) {
+  @return ($pixels/$context)+em
+}

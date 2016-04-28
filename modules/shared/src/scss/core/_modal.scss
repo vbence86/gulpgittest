@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/**
+ * Colours
+ */
+$article-background: #fff;
+$lightbox-background: #f2f2f2;
+
+$generic-border: #ccc;
+$specific-border: #999;
+
+$brand: #83b82e;
+
+$offers-small: #808080;
+$body-font: #646870;
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10040;
+	background-color: $article-background;
+
+	&.fade {opacity: 0;}
+}
+
+.modal-backdrop, 
+.modal-backdrop.fade.in {opacity: 0.5;}
+
+.modal {
+	position: absolute;
+	margin-left: -280px;
+	top: 200px;
+	left: 50%;
+	width: 560px;
+	background: $lightbox-background;
+	border: 2px solid $specific-border;
+	outline: none;
+	display: none;
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 32px;
+		height: 32px;
+		margin-top: -20px;
+		margin-right: -18px;
+		text-indent: -5000px;
+		background: url(../img/sprites/icons.png) no-repeat 0 -178px;
+	}
+
+	.controls_footer {
+		position: relative;
+		top: 45px;
+		padding-top: 18px;
+		border-top: 1px dashed $specific-border;
+
+		.separator {margin: 0 8px;}
+	}
+
+	.noramlfont {font-weight: normal !important;}
+
+	.article {
+		margin-top: 0px;
+		background-color: $article-background;
+
+		.wrapper {
+			background-color: $lightbox-background;
+			padding: 6px 18px;
+		}
+
+		#restorePasswordSection {background-color: $article-background;}
+
+		.tabmenu {margin: 40px 0 0 0;}
+	}
+
+	.header {
+		background-color: $specific-border;
+		padding: 10px 25px 10px 18px;
+
+		h2 {color: $article-background;}
+	}
+
+	&.fade {
+		top: -300px;
+		@include vendor(transition, opacity 0.3s linear, top 0.3s ease-out);
+
+		&.in {
+			top: 200px;
+			@include media-query(portable) {top: 110px;}
+		}
+	}
+
+	&.in {
+		z-index: 100050;
+		display: block;
+	}
+}
+
+.tab-content {
+	border: 1px solid $brand;
+	padding: 10px 10px 70px 10px;
+	margin-top: -2px;
+	-moz-border-radius: 0 0 5px 5px;
+	background-color: $article-background;
+
+	form {
+		.checkbox {
+			width: 295px;
+			background-color: $article-background;
+
+			label {margin-top: -2px;}
+		}
+	}
+
+	input[type="text"] {
+		border: 1px solid $generic-border;
+	}
+}
+
+.tabs {
+	margin: -40px 0 0 0;
+	padding: 0;
+	float: left;
+
+	li {
+		border: 1px solid $brand;
+		background-color: $lightbox-background;
+		width: 130px;
+
+		&:hover {
+			border-bottom: solid 1px $article-background;
+			background-color: $article-background;
+		}
+
+		&.active, &.active:hover, &:hover {
+			color: $brand;
+			background-color: $article-background;
+		}
+
+		&.active, &.active:hover {
+			border-bottom: solid 1px $article-background;
+		}
+
+		a {
+			border: none;
+			padding: 12px 0 7px 0;
+			strong { 
+				float: left; 
+			} 
+		}
+
+		.sign {margin-left: 33%;}
+
+		.join {margin-left: 30%;}
+	}
+}
+
+.modal-body {
+	position: relative;
+	max-height: 400px;
+	padding: 15px;
+	overflow-y: auto;
+}
+
+
+.fade {
+	opacity: 0;
+	@include vendor(transition, opacity 0.15s linear);
+
+	&.in {opacity: 1;}
+}
+
+.hide {display: none;}
+
+.modal-loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 300000;
+}
+
+.from-hidden-area {
+	&.modal {
+		.modal-body {
+			padding: 0;
+			margin: 0;
+			overflow-x: hidden;
+			max-height: none;
+		}
+
+		.close {z-index: 10;}
+	}
+}
+
+/*no-js styles*/
+.no-js {
+
+	.controls_footer {
+		position: relative;
+		top: 45px;
+		float: left;
+		padding-top: 18px;
+		border-top: 1px dashed $specific-border;
+
+		.separator {margin: 0 8px;}
+	}
+
+	.cancel {
+		float: left;
+		padding-top: 10px;
+	}
+}

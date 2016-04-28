@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/**
+ * Custom BoxTop Style
+ */
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/utils";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/assets";
+@import "boxtop/icons";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/accordion";
+
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/mixins";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/forms";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/skiplinks";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/buttons";
+
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/ps-colors";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/ps-icons";
+
+@import "boxtop/papershaker";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/ps-buttons";
+@import "../../../../common/src/scss/skinny-inuit.css/boxtop/ps-stepped-scrubber";
+@import "boxtop/ps-quicklook";

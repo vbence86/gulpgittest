@@ -1,0 +1,41 @@
+@charset "UTF-8";
+.infoBanner {
+	font-family: 'Open Sans', sans-serif;
+	@include font-size(16px);
+	margin: 0;
+	clear: both;
+	a {
+		display: block;
+		background-attachment: scroll;
+		background-repeat: repeat-x;
+		padding: 10px;
+		text-decoration: none;
+		&:hover { text-decoration: none; }
+		p { text-transform: uppercase; }
+	}
+	p {
+		text-align: center;
+		font-size: 14px;
+		margin: 0;
+		color: $infoColor;
+	}
+
+	&.promoBlock {
+		position: relative;
+		top: -10px;
+	}
+	&.promoBlock, &.promotionalBanner {
+		a {
+			padding: 15px 10px;
+			p {text-transform: none;}
+		}
+		> div { padding: 15px 10px; }
+		+ .catalogue-header-container { margin-top: -10px; }
+	}
+}
+#Lod.infoBanner + div {
+	.infoBanner.promoBlock {
+		top: 0;
+		+ .catalogue-header-container { margin-top: 0; }
+	}
+}

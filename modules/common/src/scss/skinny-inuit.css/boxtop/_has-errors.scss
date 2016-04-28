@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.has-errors {
+	padding: 0 30px 10px;
+	display: block;
+	width: 100%;
+	@include vendor(box-sizing, border-box);
+
+	.contact-customer-services {
+		display: block;
+		padding-top: 10px;
+	}
+
+	.support-reference {
+		color: $supportReference;
+		font-weight: bold;
+	}
+}

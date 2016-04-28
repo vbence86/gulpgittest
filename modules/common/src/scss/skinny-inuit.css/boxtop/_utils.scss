@@ -1,0 +1,96 @@
+@charset "UTF-8";
+$SIZE-DESKTOP: 960px;
+$SIZE-TABLET: 767px;
+$MOBILE-BREAK: 767px;
+$TABLET-BREAK: 1000px;
+
+$ICONS-SPRITE-RETINA-SIZE: 387px 71px;
+$ICONS-SPRITE-RETINA-SIZE1: 473px 104px;
+
+$EASING-FUNCTION: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$fix-mqs: false !default;
+$old-ie: false !default;
+
+$img-path: "${pageContext.request.contextPath}/docroot/mainModule/img";
+
+@mixin respond-min($width) {
+	@if $fix-mqs {
+		@if $fix-mqs >= $width {
+			@content;
+		}
+	}
+	@else {
+		@media screen and (min-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin retina2x() {
+	@if $old-ie != true {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			@content;
+		}
+	}
+}
+/**
+* return the correct size for the retina bg image
+*/
+@function retinaBgImgWidth($retinaWidth, $origWidth, $spriteSheetWidth){	
+	$ratio: ($retinaWidth / $origWidth); // Eg: (40 / 20) = 2
+	@return  $spriteSheetWidth / $ratio; // (356 / 2) = 178
+}
+
+@mixin gradient($from, $to) {
+	background-color:$to;
+	background-image: linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -o-linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -moz-linear-gradient(top, $from 0%, $to 100%);
+	background-image: -webkit-linear-gradient(bottom, $from 100%, $to 0%);
+    background-image: -ms-linear-gradient(top, $from 0%, $to 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, $from),
+		color-stop(0, $to)
+	);
+}
+/**
+* set specific content based vendor value of width or height
+*/
+@mixin contentBasedSizeVendorValue($property, $value) {
+	@if $value == fit-content or $value == min-content or $value == max-content {
+		#{$property}: -webkit-#{$value};
+		#{$property}: -moz-#{$value};
+		#{$property}: $value;
+	}
+
+	@else if $value == fill-available or $value == available {
+		#{$property}: -webkit-fill-available;
+		#{$property}: -moz-available;
+		#{$property}: fill-available;
+	}
+
+	@else {
+		#{$property}: $value;
+	}
+}
+
+@mixin gradientShort($from, $to) {
+	background-color:$to;
+	background-image: linear-gradient(bottom, $from 100%, $to 50%);
+	background-image: -o-linear-gradient(bottom, $from 100%, $to 50%);
+	background-image: -moz-linear-gradient(top, $from 0%, $to 50%);
+	background-image: -webkit-linear-gradient(bottom, $from 50%, $to 0%);
+    background-image: -ms-linear-gradient(top, $from 0%, $to 50%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, $from),
+		color-stop(0.5, $to)
+	);
+}

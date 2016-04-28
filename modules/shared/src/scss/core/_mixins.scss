@@ -1,0 +1,292 @@
+@charset "UTF-8";
+@mixin font-size($font-size){
+	font-size:$font-size;
+	//font-size:($font-size / 10px)*1rem;
+}
+
+@mixin media-query($media-query){
+
+	@if $media-query == small {
+		@media only screen and (max-width: $mobileStart) { @content; }
+	}
+	@if $media-query == medium {
+		@media only screen and (max-width: 1200px) { @content; }
+	}
+    @if $media-query == tablet{
+        @media only screen and (min-width: $mobileStart) and (max-width: $desktopStart) { @content; }
+    }
+
+}
+
+@mixin vendor($property, $value...){
+	-webkit-#{$property}:$value;
+	   -moz-#{$property}:$value;
+		-ms-#{$property}:$value;
+		 -o-#{$property}:$value;
+			#{$property}:$value;
+}
+
+/**
+ * Helper function to work around an issue in Safari browsers where a prefixed -transition
+ * property will expected a prefixed value (in this value -transform) as it's watch
+ * parameter or else it will not funciton.  This goes against the W3C spec and it presumably
+ * a bug but one way or another it requires this work around.
+ *
+ * @param $value... List of values that are applied to the transitioned property
+ * @see https://developer.mozilla.org/en/docs/Web/CSS/transition
+*/
+@mixin transition-transform($value...) {
+	// TOOD: Expand this mixin to include a full list of potentially required prefixed properties
+	-webkit-transition: -webkit-transform $value;
+	   -moz-transition:    -moz-transform $value;
+	    -ms-transition:     -ms-transform $value;
+         -o-transition:      -o-transform $value;
+            transition:         transform $value;
+}
+
+$old-ie: false !default;
+@mixin retina2x() {
+	@if $old-ie != true {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			@content;
+		}
+	}
+}
+
+@mixin gradient($from, $to) {
+	background-color:$to;
+	background-image: linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -o-linear-gradient(bottom, $from 100%, $to 0%);
+	background-image: -moz-linear-gradient(top, $from 0%, $to 100%);
+	background-image: -webkit-linear-gradient(bottom, $from 100%, $to 0%);
+    background-image: -ms-linear-gradient(top, $from 0%, $to 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, $from),
+		color-stop(0, $to)
+	);
+}
+
+@mixin arrow-media($arrow-edge, $arrow-location, $arrow-color, $border-color: $arrow-color){
+	&:before,
+	&:after{
+		content:"";
+		position:absolute;
+		border-collapse:separate;
+	}
+
+	&:before{
+		border:$border solid transparent!important;
+	}
+	&:after{
+		border:$arrow solid transparent!important;
+	}
+
+	@if $arrow-edge == top{
+		&:before,
+		&:after{
+			bottom:100%;
+		}
+
+		&:before{
+			border-bottom-color:$border-color!important;
+		}
+
+		&:after{
+			border-bottom-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == left{
+				&:before{
+					left:$arrow;
+				}
+				&:after{
+					left:$border;
+				}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				left:50%;
+				margin-left:-$border;
+			}
+			&:after{
+				margin-left:-$arrow;
+			}
+		}
+
+		@if $arrow-location == right{
+			&:before{
+				right:$arrow;
+			}
+			&:after{
+				right:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == right{
+
+		&:before,
+		&:after{
+			left:100%;
+		}
+
+		&:before{
+			border-left-color:$border-color!important;
+		}
+
+		&:after{
+			border-left-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == top{
+			&:before{
+				top:$arrow;
+			}
+			&:after{
+				top:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				top:50%;
+				margin-top:-$border;
+			}
+			&:after{
+				margin-top:-$arrow;
+			}
+		}
+
+		@if $arrow-location == bottom{
+			&:before{
+				bottom:$arrow;
+			}
+			&:after{
+				bottom:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == bottom{
+
+		&:before,
+		&:after{
+			top:100%;
+		}
+
+		&:before{
+			border-top-color:$border-color!important;
+		}
+
+		&:after{
+			border-top-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == left{
+			&:before{
+				left:$arrow;
+			}
+			&:after{
+				left:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				left:50%;
+				margin-left:-$border;
+			}
+			&:after{
+				margin-left:-$arrow;
+			}
+		}
+
+		@if $arrow-location == right{
+			&:before{
+				right:$arrow;
+			}
+			&:after{
+				right:$border;
+			}
+		}
+
+	}
+
+	@if $arrow-edge == left{
+
+		&:before,
+		&:after{
+			right:100%;
+		}
+
+		&:before{
+			border-right-color:$border-color!important;
+		}
+
+		&:after{
+			border-right-color:$arrow-color!important;
+		}
+
+		@if $arrow-location == top{
+			&:before{
+				top:$arrow;
+			}
+			&:after{
+				top:$border;
+			}
+		}
+
+		@if $arrow-location == center{
+			&:before,
+			&:after{
+				top:50%;
+				margin-top:-$border;
+			}
+			&:after{
+				margin-top:-$arrow;
+			}
+		}
+
+		@if $arrow-location == bottom{
+			&:before{
+				bottom:$arrow;
+			}
+			&:after{
+				bottom:$border;
+			}
+		}
+
+	}
+
+}
+
+@mixin appearance($type){
+	@if $type == input{
+		@include vendor(appearance, none);
+	}
+	@if $type == select{
+		@include vendor(appearance, menulist);
+	}
+	@include vendor(border-radius, 0);
+}
+
+@mixin cssAnimation($amimation-name,$duration){
+	-moz-animation-duration: $duration;
+	-webkit-animation-duration: $duration;
+	-ms-animation-duration: $duration;
+	-o-animation-duration: $duration;
+	-moz-animation-name: $amimation-name;
+	-webkit-animation-name: $amimation-name;
+	-ms-animation-name: $amimation-name;
+	-o-animation-name: $amimation-name;
+}

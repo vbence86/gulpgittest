@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.icon {
+
+	&.icon-close-quick-look {
+		background: url($sprite-ps-quick-look-close-icon-image) $sprite-ps-quick-look-close-icon-offset-x $sprite-ps-quick-look-close-icon-offset-y;
+		width: $sprite-ps-quick-look-close-icon-width;
+		height: $sprite-ps-quick-look-close-icon-height;
+
+		@include retina2x {
+			background-size: auto auto;
+		}
+	}
+}

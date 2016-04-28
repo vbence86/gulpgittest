@@ -1,0 +1,38 @@
+{
+    "targets" : [
+        {
+            "name" : "shared.js",
+            "type" : "js",
+            "src": [
+
+                "!common.js",
+
+                "lib/hammer.js",
+                "plugins/bootstrap-modal.js",
+                "plugins/picturefill.js",
+                "plugins/jquery.hammer.js",
+
+                "utils.js",
+                "device-specific.js",
+                "modal-loader.js",
+                "nav.js",
+                "mobile-site-nav.js",
+                "float.js",
+                "cookieBanner.js",
+                "footer.js",
+                "forgotten-password.js",
+                "login.js",
+                "overlay-components.js",
+                "registration.js",
+                "tag-manager.js",
+                "lastFile.js"
+            ]
+            
+        },
+        {
+            "name": "shared.css",
+            "type": "scss",
+            "src" : "shared.scss"
+        }
+    ]
+}

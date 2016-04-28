@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@font-face {
+	font-family: "Josefin Sans";
+	src: url(../font/JosefinSans-Regular.ttf);
+}
+
+@include font-face('NeuzeitGro-Reg', '../font/', 'urw_-_neuzeitgro-reg-webfont');
+@include font-face('NeuzeitGro-Bol', '../font/', 'urw_-_neuzeitgro-bol-webfont');
+@include font-face('NeuzeitGro-Lig', '../font/', 'urw_-_neuzeitgro-lig-webfont');
