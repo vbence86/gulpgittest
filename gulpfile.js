@@ -2,9 +2,9 @@
 
 const gulp = require('gulp');
 const gutil = require('gutil');
-const git = require('gulp-git');
 const bump = require('gulp-bump');
 const tag_version = require('gulp-tag-version');
+const git = require('gulp-git');
 const exec = require('child_process').exec;
 
 let taggingMessage = 'Default tagging message';
@@ -44,23 +44,56 @@ gulp.task('pull', () => {
 
 // Tag the repo with a version 
 gulp.task('tag', () => {
-    gitpull().then(() => {
-        
+    gitcurrentbranch().then(branch => {
+        return gitpull(branch);
+    }).then(() => {
+        return gitTagManager.increaseVersion();
+    }).then( version => {
+        return gittag(version, taggingMessage);
+    }).then( () => {
+        return gitpushtags();
+    }).catch(err => {
+        console.log(err);
+        throw err;
     });
 });
+const gitcurrentbranch = () => {
+    return new Promise((resolve, reject) => {
+        exec('git rev-parse --abbrev-ref HEAD', (err, stdout) => {
+            let branch;
+            if (err){
+                reject(err);
+                return;
+            }
+            branch = stdout.replace(/\s+/g, '');
+            resolve(branch);
+        });
+    });
+};
 const gitpull = () => {
-    return new Promise(resolve, reject) => {
+    return new Promise((resolve, reject) => {
         git.pull('origin', '', err => {
             if (err) { 
                 reject(err);
                 return;
             }
             resolve();
-        };
-    };
+        });
+    });
+};
+const gittag = (tag, msg) => {
+    return new Promise((resolve, reject) => {
+        git.tag(tag, msg, err => {
+            if (err){
+                reject(err);
+                return;
+            }
+            resolve();
+        });
+    });
 };
 const gitpushtags = () => {
-    return new Promise(resolve, reject) => {
+    return new Promise((resolve, reject) => {
         git.push('origin', '', {args: '--tags'}, err => {
             if (err) {
                 reject(err);
@@ -68,9 +101,9 @@ const gitpushtags = () => {
             }
             resolve();
         });
-    };
+    });
 };
-const gittaglist = (() => {
+const gitTagManager = (() => {
 
     let promise;   
     const isInt = val => { return !isNaN(val) && (x => (x | 0) === x)(parseFloat(val)); };
@@ -108,40 +141,32 @@ const gittaglist = (() => {
                 throw err;
             });
         },
-        latest(callback){
-            if (typeof callback !== 'function'){
-                return;
-            }
-            fetchTags().then( tags => {
+        latest(){
+            return fetchTags().then( tags => {
                 let tmp = tags.map(val => parseInt(val));
                 const latest = tmp.sort((a, b) => a - b).pop();
-                callback( latest );
-            }).catch( err => {
-                throw err;
+                return latest;
             });
         },
-        next(callback){
-            if (typeof callback !== 'function'){
-                return;
-            }
-            this.latest( (latest) => {
+        increaseVersion(){
+            return this.latest().then( latest => {
                 latest = parseInt(latest) + 1;
-                callback(latest);
+                return latest;
             });
         }
     };
 })();
 
 gulp.task('taglist', () => {
-    taglist.each( (tag) => {
+    gittaglist.each( (tag) => {
         console.log(tag);
     });
 });
 
 gulp.task('nextversion', () => {
-    taglist.next( (tag) => {
-        console.log(tag);
-    });
+    gittaglist.increaseVersion().then( next => {
+        console.log(next); 
+    } );
 });
 
 
